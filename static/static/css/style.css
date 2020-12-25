@@ -7,7 +7,7 @@ body {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 10px;
-    font: 14px/1.5 monospace;
+    font: 14px/1.5;
     color: #444
 }
 
@@ -28,18 +28,12 @@ h1, h2, h3 {
     }
 }
 
-/* p>code { */
-/*     color: #FFFFFF; */
-/*     background: #000000; */
-/*     padding: 2px */
-/* } */
-
-/* pre { */
-/*     color: #FFFFFF; */
-/*     background: #000000; */
-/*     padding: 24px; */
-/*     overflow-x: auto */
-/* } */
+blockquote {
+    color: #FFFFFF;
+    background: #000000;
+    padding: 24px;
+    overflow-x: auto
+}
 
 article {
     padding: 24px 0
