@@ -35,7 +35,7 @@ jobs:
       - name: Install org-roam dependencies
         run: sudo apt-get install -y graphviz sqlite3 libsqlite3-dev
 
-      e name: org-mode publish
+      - name: org-mode publish
         run: |
           PROJECT_DIR=$(pwd) emacs --batch -Q \
               -L $(pwd) \
