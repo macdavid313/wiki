@@ -85,5 +85,9 @@
 
 (setq org-roam-title-to-slug-function 'org-roam-title-to-slug)
 
+(defun wiki/publish ()
+  "Publish the wiki site."
+  (org-publish-all))
+
 (provide 'publish)
 ;;; publish.el ends here

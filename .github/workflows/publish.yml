@@ -36,7 +36,7 @@ jobs:
         run: sudo apt-get install -y graphviz sqlite3 libsqlite3-dev
 
       - name: org-mode publish
-        run: emacs --batch -Q -l publish.el --eval '(org-publish-all)'      
+        run: emacs --batch -Q -l publish.el --eval '(wiki/publish)'      
 
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v3
