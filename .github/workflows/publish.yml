@@ -28,6 +28,9 @@ jobs:
         with:
           version: '27.1'
 
+      - name: Setup sqlite3
+        run: sudo apt-get install sqlite3 libsqlite3-dev
+
       - name: org-mode publish
         run: emacs --batch -Q -l publish.el --eval '(org-publish-all)'      
 
