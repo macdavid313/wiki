@@ -58,7 +58,8 @@
 <link rel=\"stylesheet\" href=\"/wiki/static/css/style.css\">")
 
 (setq org-publish-project-alist
-      `(("html"
+      `(("all" :components ("html" "assets"))
+        ("html"
          :base-directory ,(concat project-dir "/org")
          :base-extension "org"
          :publishing-directory ,publish-dir
@@ -110,7 +111,7 @@
 
 (defun wiki/publish ()
   "Publish the wiki site."
-  (org-publish-all))
+  (org-publish "all"))
 
 (provide 'publish)
 ;;; publish.el ends here
