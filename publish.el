@@ -85,7 +85,7 @@
          ;; :sitemap-filename "recentchanges.org")
         ("assets"
          :base-directory ,(concat project-dir "/static")
-         :base-extension "*"
+         :base-extension any
          :publishing-directory ,publish-dir
          ;; :exclude "node_modules"
          :recursive t
