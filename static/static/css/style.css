@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-family: 'Noto Serif SC', serif;
+    font-family: 'Fira Code', monospace;
     max-width: 800px;
     margin: 40px auto;
     padding: 0 10px;
@@ -25,11 +25,6 @@ h1, h2, h3 {
     a:visited {
         color: #ccf
     }
-}
-
-blockquote {
-    padding: 24px;
-    overflow-x: auto
 }
 
 article {
@@ -61,13 +56,13 @@ figure {
 
 pre {
     /* color: black; */
-    font-family: 'Fira Code', monospace;
+    font-family: 'VT323', monospace;
     font-size: small;
 }
 
-/* blockquote {
-    font-family: 'Xanh Mono', monospace;
-} */
+blockquote {
+    font-family: serif;
+}
 
 figure {
     margin-top: 3%;
