@@ -42,17 +42,18 @@
 ;; (require 'htmlize)
 
 (defvar site-preamble "")
-(defvar site-postamble "")
-(defvar site-head-extra
-  "<link rel=\"stylesheet\" href=\"//unpkg.com/heti/umd/heti.min.css\">
-<link rel=\"stylesheet\" href=\"/wiki/static/css/style.css\">
-<script src=\"//unpkg.com/heti/umd/heti-addon.min.js\"></script>
+
+(defvar site-postamble "<script src=\"//unpkg.com/heti/umd/heti-addon.min.js\"></script>
 <script>
   document.getElementById(\"content\").classList.add(\"heti\");
-  document.getElementById(\"content\").classList.add(\"heti--classic\")
+  document.getElementById(\"content\").classList.add(\"heti--classic\");
   const heti = new Heti('.heti');
   heti.autoSpacing(); // 自动进行中西文混排美化和标点挤压
 </script>")
+
+(defvar site-head-extra
+  "<link rel=\"stylesheet\" href=\"//unpkg.com/heti/umd/heti.min.css\">
+<link rel=\"stylesheet\" href=\"/wiki/static/css/style.css\">")
 
 (setq org-publish-project-alist
       `(("html"
