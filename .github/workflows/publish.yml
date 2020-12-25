@@ -33,11 +33,7 @@ jobs:
       #   run: sudo apt-get install
 
       - name: Install org-roam dependencies
-        apt:
-          name:
-            - graphvis
-            - sqlite3
-            - libsqlite3
+        run: sudo apt-get install -y graphviz sqlite3 libsqlite3-dev
 
       - name: org-mode publish
         run: emacs --batch -Q -l publish.el --eval '(org-publish-all)'      
