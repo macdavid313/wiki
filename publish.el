@@ -41,8 +41,21 @@
 ;; (require 's)
 ;; (require 'htmlize)
 
+(defvar site-preamble "")
+(defvar site-postamble "")
+(defvar site-head-extra
+  "<link rel=\"stylesheet\" href=\"//unpkg.com/heti/umd/heti.min.css\">
+<link rel=\"stylesheet\" href=\"/wiki/static/css/style.css\">
+<script src=\"//unpkg.com/heti/umd/heti-addon.min.js\"></script>
+<script>
+  $(\"body\").classList.add(\"heti\");
+  $(\"body\").classList.add(\"heti--classic\")
+  const heti = new Heti('.heti');
+  heti.autoSpacing(); // 自动进行中西文混排美化和标点挤压
+</script>")
+
 (setq org-publish-project-alist
-      `(("site"
+      `(("html"
          :base-directory ,(concat project-dir "/org")
          :base-extension "org"
          :publishing-directory ,publish-dir
@@ -51,14 +64,21 @@
          :headline-levels 4
          :with-toc t
          :html-doctype "html5"
-         :html-html5-fancy t)
+         :html-html5-fancy t
+         :html-preamble ,site-preamble
+         :html-postamble ,site-postamble
+         :html-head-include-scripts nil
+         :html-head-include-default-style nil
+         :html-head-extra ,site-head-extra
+         ;; :html-container "section"
+         :htmlized-source nil)
          ;; :auto-sitemap t)
          ;; :exclude "node_modules"
          ;; :sitemap-title "Recent changes"
          ;; :sitemap-sort-files anti-chronologically
          ;; :sitemap-format-entry commonplace/sitemap-format-entry
          ;; :sitemap-filename "recentchanges.org")
-        ("static"
+        ("assets"
          :base-directory ,(concat project-dir "/static")
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|svg\\|svg\\|json\\|pdf"
          :publishing-directory ,publish-dir
