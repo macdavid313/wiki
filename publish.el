@@ -23,8 +23,8 @@
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
-;; (dolist (pkg '(org-roam))
-;;   (package-install pkg))
+(dolist (pkg '(org-roam))
+  (package-install pkg))
 
 ;;; Don't create backup files (those ending with ~) during the publish process.
 (setq make-backup-files nil)
