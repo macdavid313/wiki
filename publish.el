@@ -65,8 +65,8 @@
          :html-html5-fancy t
          :html-preamble ,site-preamble
          :html-postamble ,site-postamble
-         :html-head-include-scripts nil
-         :html-head-include-default-style nil
+         :html-head-include-scripts t
+         :html-head-include-default-style t
          :html-head-extra ,site-head-extra
          :html-link-use-abs-url t
          ;; :html-container "section"

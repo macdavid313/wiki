@@ -28,18 +28,18 @@ h1, h2, h3 {
     }
 }
 
-p>code {
-    color: #FFFFFF;
-    background: #000000;
-    padding: 2px
-}
+/* p>code { */
+/*     color: #FFFFFF; */
+/*     background: #000000; */
+/*     padding: 2px */
+/* } */
 
-pre {
-    color: #FFFFFF;
-    background: #000000;
-    padding: 24px;
-    overflow-x: auto
-}
+/* pre { */
+/*     color: #FFFFFF; */
+/*     background: #000000; */
+/*     padding: 24px; */
+/*     overflow-x: auto */
+/* } */
 
 article {
     padding: 24px 0
@@ -68,7 +68,7 @@ figure {
     margin: auto
 }
 
-code {
+pre {
     /* color: black; */
     font-family: 'Fira Code', monospace;
     font-size: small;
