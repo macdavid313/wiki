@@ -1,7 +1,7 @@
 #+TITLE: 维基 (Wiki)
 #+OPTIONS: toc:nil
 
-#+BGEIN_CENTER
+#+BEGIN_CENTER
 *欢迎来到我的维基页面！Welcome to my Wiki!*
 #+END_CENTER
 
