@@ -1,0 +1,3 @@
+#+title: Lisp
+
+Welcome to the madness of parenthesis.
