@@ -26,7 +26,7 @@ jobs:
       - name: Setup Emacs
         uses: purcell/setup-emacs@master
         with:
-          version: '27.1'
+          version: snapshot
 
       - name: Setup sqlite3
         run: sudo apt-get install sqlite3 libsqlite3-dev
