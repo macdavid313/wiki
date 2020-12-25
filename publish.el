@@ -47,8 +47,7 @@
   "<script src=\"//unpkg.com/heti/umd/heti-addon.min.js\"></script>
 <script>
   document.getElementById(\"content\").classList.add(\"heti\");
-  document.getElementById(\"content\").classList.add(\"heti--classic:w
-\");
+  document.getElementById(\"content\").classList.add(\"heti--classic\");
   const heti = new Heti('.heti');
   heti.autoSpacing(); // 自动进行中西文混排美化和标点挤压
 </script>")
