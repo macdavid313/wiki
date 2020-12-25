@@ -3,6 +3,7 @@ html {
 }
 
 body {
+    font-family: 'Noto Serif SC', serif;
     max-width: 800px;
     margin: 40px auto;
     padding: 0 10px;
@@ -67,12 +68,11 @@ figure {
     margin: auto
 }
 
-/* code {
+code {
     color: black;
     font-family: 'Fira Code', monospace;
     font-size: small;
 }
- */
 
 /* blockquote {
     font-family: 'Xanh Mono', monospace;

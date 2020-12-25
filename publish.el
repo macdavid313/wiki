@@ -54,7 +54,8 @@
 
 (defvar site-head-extra
   "<link rel=\"shortcut icon\" href=\"/wiki/static/img/favicon.ico\">
-<link rel=\"stylesheet\" href=\"//unpkg.com/heti/umd/heti.min.css\">
+<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\">
+<link href=\"https://fonts.googleapis.com/css2?family=Fira+Code&family=Noto+Serif+SC:wght@400;700&display=swap\" rel=\"stylesheet\">
 <link rel=\"stylesheet\" href=\"/wiki/static/css/style.css\">")
 
 (setq org-publish-project-alist
