@@ -48,8 +48,8 @@
 <link rel=\"stylesheet\" href=\"/wiki/static/css/style.css\">
 <script src=\"//unpkg.com/heti/umd/heti-addon.min.js\"></script>
 <script>
-  $(\"body\").classList.add(\"heti\");
-  $(\"body\").classList.add(\"heti--classic\")
+  document.getElementById(\"content\").classList.add(\"heti\");
+  document.getElementById(\"content\").classList.add(\"heti--classic\")
   const heti = new Heti('.heti');
   heti.autoSpacing(); // 自动进行中西文混排美化和标点挤压
 </script>")
@@ -70,6 +70,7 @@
          :html-head-include-scripts nil
          :html-head-include-default-style nil
          :html-head-extra ,site-head-extra
+         :html-link-use-abs-url t
          ;; :html-container "section"
          :htmlized-source nil)
          ;; :auto-sitemap t)
