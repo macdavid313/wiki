@@ -17,8 +17,9 @@
 
 ;; install deps
 (require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("org" . "http://orgmode.org/elpa/")))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
