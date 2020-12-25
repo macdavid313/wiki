@@ -48,7 +48,7 @@
 (defvar site-head-extra
   "<link rel=\"shortcut icon\" href=\"/wiki/static/img/favicon.ico\">
 <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\">
-<link href=\"https://fonts.googleapis.com/css2?family=Fira+Code&family=VT323&display=swap\" rel=\"stylesheet\">
+<link href=\"https://fonts.googleapis.com/css2?family=Fira+Code&family=JetBrains+Mono&display=swap\" rel=\"stylesheet\">
 <link rel=\"stylesheet\" href=\"/wiki/static/css/style.css\">")
 
 (setq org-publish-project-alist
