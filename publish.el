@@ -41,10 +41,9 @@
 ;; (require 's)
 ;; (require 'htmlize)
 
-
 (setq org-publish-project-alist
       `(("site"
-         :base-directory ,project-dir
+         :base-directory ,(concat project-dir "/org")
          :base-extension "org"
          :publishing-directory ,publish-dir
          :publishing-function org-html-publish-to-html
@@ -58,11 +57,11 @@
          ;; :sitemap-title "Recent changes"
          ;; :sitemap-sort-files anti-chronologically
          ;; :sitemap-format-entry commonplace/sitemap-format-entry
-         ;;:sitemap-filename "recentchanges.org")
+         ;; :sitemap-filename "recentchanges.org")
         ("static"
-         :base-directory ,project-dir
+         :base-directory ,(concat project-dir "/static")
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|svg\\|svg\\|json\\|pdf"
-         :publishing-directory publish-dir
+         :publishing-directory ,publish-dir
          ;; :exclude "node_modules"
          :recursive t
          :publishing-function org-publish-attachment)))
