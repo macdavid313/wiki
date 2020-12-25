@@ -54,6 +54,5 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: public_html
-          fqdn: macdavid313.xyz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
