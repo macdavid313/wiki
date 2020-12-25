@@ -44,9 +44,9 @@
 
 (setq org-publish-project-alist
       `(("site"
-         :base-directory ,*project-dir*
+         :base-directory ,project-dir
          :base-extension "org"
-         :publishing-directory ,*publish-dir*
+         :publishing-directory ,publish-dir
          :publishing-function org-html-publish-to-html
          :recursive t
          :headline-levels 4
