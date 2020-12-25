@@ -25,7 +25,15 @@
   (package-refresh-contents))
 ;; (dolist (pkg '(org-roam))
 ;;   (package-install pkg))
-;; -- End of set up
+
+;;; Don't create backup files (those ending with ~) during the publish process.
+(setq make-backup-files nil)
+
+(defvar project-dir (file-name-directory (buffer-file-name)))
+(defvar publish-dir (concat project-dir "public_html/"))
+(setq org-roam-directory (concat project-dir "org/"))
+(defvar publish-url "https://macdavid313.xyz/wiki")
+; -- End of set up
 
 (require 'ox-publish)
 (require 'ox-html)
@@ -33,13 +41,6 @@
 ;; (require 's)
 ;; (require 'htmlize)
 
-;; Don't create backup files (those ending with ~) during the publish process.
-(setq make-backup-files nil)
-
-(defvar project-dir (file-name-directory (buffer-file-name)))
-(defvar publish-dir (concat project-dir "public_html/"))
-(setq org-roam-directory (concat project-dir "org/"))
-(defvar publish-url "https://macdavid313.xyz/wiki")
 
 (setq org-publish-project-alist
       `(("site"
