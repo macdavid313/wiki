@@ -1,4 +1,5 @@
 #+TITLE: 维基 (Wiki)
+#+OPTIONS: toc:nil
 
 *欢迎来到我的维基页面！Welcome to my Wiki!* You might have just come from my [[https://macdavid313.xyz][Homepage]]. This Wiki site contains various curations, notes and probably random rantings that I'd taken over some years. Enjoy!
 
@@ -10,5 +11,5 @@ The most merciful thing in the world, I think, is the inability of the human min
 
 * Full Index
 
-+[[file:20201225161334-lisp.org][Lisp]]
-+[[file:20201225161440-common_lisp.org][Common Lisp]]
+- [[file:20201225161334-lisp.org][Lisp]]
+- [[file:20201225161440-common_lisp.org][Common Lisp]]
