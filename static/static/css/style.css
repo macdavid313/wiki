@@ -28,8 +28,6 @@ h1, h2, h3 {
 }
 
 blockquote {
-    color: #FFFFFF;
-    background: #000000;
     padding: 24px;
     overflow-x: auto
 }
