@@ -54,7 +54,7 @@
 </script>")
 
 (defvar site-head-extra
-  "<link rel=\"shortcut icon\" href=\"/wiki/img/favicon.ico\">
+  "<link rel=\"shortcut icon\" href=\"/wiki/static/img/favicon.ico\">
 <link rel=\"stylesheet\" href=\"//unpkg.com/heti/umd/heti.min.css\">
 <link rel=\"stylesheet\" href=\"/wiki/static/css/style.css\">")
 
