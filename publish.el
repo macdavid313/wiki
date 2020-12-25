@@ -15,12 +15,15 @@
 ;; Script for building static HTML files
 ;;; Code:
 
-;; Set up
+;; install deps
 (require 'package)
-(package-initialize)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")))
-(package-refresh-contents)
+(package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
+(dolist (pkg '(org-roam))
+  (package-install pkg))
 ;; -- End of set up
 
 (require 'ox-publish)
