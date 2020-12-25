@@ -69,7 +69,7 @@ figure {
 }
 
 code {
-    color: black;
+    /* color: black; */
     font-family: 'Fira Code', monospace;
     font-size: small;
 }
