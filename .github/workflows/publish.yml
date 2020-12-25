@@ -28,8 +28,8 @@ jobs:
         with:
           version: snapshot
 
-      - name: Setup sqlite3
-        run: sudo apt-get install sqlite3 libsqlite3-dev
+      - name: Setup org-roam
+        run: sudo apt-get install elpa-org-roam
 
       - name: org-mode publish
         run: emacs --batch -Q -l publish.el --eval '(org-publish-all)'      

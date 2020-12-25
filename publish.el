@@ -23,8 +23,8 @@
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
-(dolist (pkg '(org-roam))
-  (package-install pkg))
+;; (dolist (pkg '(org-roam))
+;;   (package-install pkg))
 ;; -- End of set up
 
 (require 'ox-publish)
