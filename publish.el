@@ -58,21 +58,37 @@
     #'string-lessp
     :key #'cdr))
 
+(defun build-graph/graphviz ()
+  (let* ((node-query `[:select [titles:file titles:title] :from titles
+                       :where :not (like title '"%Wiki%")])
+         (dot (org-roam-graph--dot node-query))
+         (tmp-dot (make-temp-file "graph." nil ".dot" dot))
+         (tmp-graph (make-temp-file "graph." nil ".svg")))
+    ;; FIXME: find a better way to do it properly
+    (call-process "dot" nil 0 nil tmp-dot "-Tsvg" "-o" tmp-graph)
+    (sit-for 2)
+    (copy-file tmp-graph
+               (concat project-dir "/static/static/img/graph.svg")
+               't)))
+
 (defun append-full-index ()
   "Append all org files to index.org in a 'Full Index' section."
   (with-temp-buffer
-    (insert "\n* Full Index\n\n")
+    (insert "#+title: 全索引 (Full Index)\n")
+    (insert "\n[[http://macdavid313.xyz/wiki/static/img/graph.svg]]\n\n")
     (dolist (fname-title (collect-all-org-files-titles))
       (when (not (string-equal (car fname-title) "index.org"))
         (insert (format "- [[file:%s][%s]]\n"
                         (car fname-title)
                         (cdr fname-title)))))
     (append-to-file (point-min) (point-max)
-                    (concat org-roam-directory "/index.org"))
+                    (concat org-roam-directory "/full_index.org"))
     (kill-buffer (current-buffer))))
 
 (defun prepare-publish (prop)
   (progn
+    (org-roam-db-build-cache)
+    (build-graph/graphviz)
     (append-full-index)))
 
 ;;; Configurations for publishing
