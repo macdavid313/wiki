@@ -13,3 +13,5 @@
 # ignore artifact
 public_html
 
+# ignore Dockerfile as it's only for dev
+Dockerfile
