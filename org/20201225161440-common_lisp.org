@@ -28,30 +28,195 @@ Link: [[https://nikodemus.github.io/screamer/]]
 - [[https://www.multicians.org/lcp.html][Multics MACLISP Compiler]]
 - [[https://0branch.com/notes/tco-cl.html][Tail Call Optimisation in Common Lisp Implementations]]
 - [[https://www.lurklurk.org/cpp_clos.html][C++ and Lisp]]
+- [[https://web.archive.org/web/20200109080251/http://home.pipeline.com/~hbaker1/Prag-Parse.html][Pragmatic Parsing in Common Lisp]]
+- [[https://bernsteinbear.com/blog/lisp/][Lisp implmentations]]
+  A series of blog posts illustrating how to implement a Lisp
+  - Writing a Lisp, the series
+  - Compiling a Lisp, the series
 
 * Papers
 
 ** Compiler
 
-*** [[https://app.readcube.com/][Pragmatic parsing in Common Lisp; or, putting defmacro on steroids]]
+- [[https://app.readcube.com/][Pragmatic parsing in Common Lisp; or, putting defmacro on steroids]]
 
 ** CLOS
 
-*** [[https://app.readcube.com/][CLOS: integrating object-oriented and functional programming]]
-*** [[https://app.readcube.com/][OWL-Full Reasoning from an Object Oriented Perspective]]
+- [[https://app.readcube.com/][CLOS: integrating object-oriented and functional programming]]
+- [[https://app.readcube.com/][OWL-Full Reasoning from an Object Oriented Perspective]]
 
 ** Scientific Computing
 
-*** [[https://dl.acm.org/doi/10.1145/200979.200989][Fast floating-point processing in Common Lisp]]
-*** [[https://link.springer.com/chapter/10.1007/978-3-642-19014-8_11][On Using Common Lisp for Scientific Computing]]
-*** [[https://www.researchgate.net/publication/265237896_Performance_Beyond_Expectations][Performance Beyond Expectations]]
-*** [[https://www.semanticscholar.org/paper/Beating-C-in-Scientific-Computing-Applications-On-1-Verna/240d0287c331866a78aedfc4dec1ee958e9b7ffd][Beating C in Scientific Computing Applications On the Behavior and Performance of LISP, Part 1]]
-*** [[https://www.semanticscholar.org/paper/When-lisp-is-faster-than-C-Svingen/afee947c390f5a1966ae8979ab02c9a95ee3fa86][When lisp is faster than C]]
-*** [[https://www.semanticscholar.org/paper/How-to-Make-Lisp-Go-Faster-than-C-Verna/0fe643dcbb8760031b7b630b0bef34f69db19c11][How to Make Lisp Go Faster than C]]
+- [[https://dl.acm.org/doi/10.1145/200979.200989][Fast floating-point processing in Common Lisp]]
+- [[https://link.springer.com/chapter/10.1007/978-3-642-19014-8_11][On Using Common Lisp for Scientific Computing]]
+- [[https://www.researchgate.net/publication/265237896_Performance_Beyond_Expectations][Performance Beyond Expectations]]
+- [[https://www.semanticscholar.org/paper/Beating-C-in-Scientific-Computing-Applications-On-1-Verna/240d0287c331866a78aedfc4dec1ee958e9b7ffd][Beating C in Scientific Computing Applications On the Behavior and Performance of LISP, Part 1]]
+- [[https://www.semanticscholar.org/paper/When-lisp-is-faster-than-C-Svingen/afee947c390f5a1966ae8979ab02c9a95ee3fa86][When lisp is faster than C]]
+- [[https://www.semanticscholar.org/paper/How-to-Make-Lisp-Go-Faster-than-C-Verna/0fe643dcbb8760031b7b630b0bef34f69db19c11][How to Make Lisp Go Faster than C]]
 
 * Notes
 
-** <2018-07-04 Wed>
+** On Embedding Python in Common Lisp (Archived)
+
+I did look into the interface code over the weekend. It’s not hard to link to the python library but it’s not immediately obvious how to invoke functions in the interpreter.
+
+I did some google searches and found an example of someone loading in a python program and running a function.
+
+I made his program work in Lisp (see the function test at the end) and added support to call the necessary functions in Python.
+
+In the example he had this file filter.py in the current directory:
+
+#+BEGIN_SRC python
+def filterFunc(s): return s.upper()
+#+END_SRC
+
+and here’s all you need to call that from a lisp program. Note that on my machine the python library is version2.7. On your machine you may need to load in a different so file depending on which Python you’re running.
+
+For a complete interface there are many more Python C/API functions to declare. But I think for most cases just a few key functions will be used.
+
+#+BEGIN_SRC lisp -n
+(defpackage :user (:use :ff))
+(in-package :user)
+
+(load "/usr/lib64/libpython2.7.so")
+
+;; initialize
+
+(def-foreign-call Py_Initialize (:void) :returning :int)
+(def-foreign-call Py_GetVersion (:void) :returning ((* :char)) :strings-convert t)
+
+;; reference count
+(def-foreign-call Py_IncRef((object (* :void))) :returning :int)
+(def-foreign-call Py_DecRef((object (* :void))) :returning :int)
+(def-foreign-call PySys_GetObject ((name (* :char))) :returning ((* void)) :strings-convert t)
+
+;; calling function in the **main** module
+(def-foreign-call PyEval_GetGlobals (:void) :returning ((* :void)) :strings-convert t)
+(def-foreign-call PyRun_SimpleString((str (* :char))) :returning :int :strings-convert t)
+(def-foreign-call Py_GetVersion (:void) :returning ((* :char)) :strings-convert t)
+(defconstant Py_single_input 256)
+(defconstant Py_file_input 257)
+(defconstant Py_eval_input 258)
+(def-foreign-call PyRun_String((str (* :char)) (start :int) (globals (* :void)) (locals (* :void))) :returning ((* :void)) :strings-convert t)
+(def-foreign-call Py_CompileString((str (* :char)) (filename (* :char)) (kind-of-compile :int)) :returning ((* :void)) :strings-convert t )
+(def-foreign-call PyEval_EvalCode((codepointer (* :void)) (globals (* :void)) (locals (* :void))) :returning ((* :void)))
+(def-foreign-call PyImport_Import ((stringobject (* :void))) :returning ((* :void)) ; module object )
+
+; allow for any number of args
+(def-foreign-call Py_BuildValue () :returning ((* :void)) :strings-convert t)
+
+(def-foreign-call PyObject_GetAttrString((mod (* :void)) (name (* :char))) :returning ((* :void)) :strings-convert t)
+
+(def-foreign-call PyObject_CallObject ((fcnptr (* :void)) (argsobj (* :void))) :returning ((* :void)))
+
+;; objects
+
+; returns pointer to object
+
+(def-foreign-call PyInt_FromLong ((val :long)) :returning ((* void)))
+
+(def-foreign-call PyString_FromString ((val (* :char))) :returning ((* :void)) :strings-convert t)
+
+(def-foreign-call PyString_AsString ((obj (* :void))) :returning ((* :char)) :strings-convert t)
+
+(def-foreign-variable PyType_Type :type :unsigned-long)
+(def-foreign-variable PyInt_Type :type :unsigned-long)
+
+(def-foreign-call PyType_Check ((obj (* :void))) :returning :int)
+
+(def-foreign-call PyInt_Check ((obj (* :void))) :returning :int )
+
+(def-foreign-call PyInt_AsLong ((obj (* :void))) :returning :long )
+
+(def-foreign-call PyList_Append ((listobj (* :void)) (object (* :void))) :returning ((* :void)))
+
+(defun test () (Py_Initialize) ; add "." to the sys.path so we can import [filter.py](http://filter.py/) ; in the current directory (let ((syspath (PySys_GetObject "path"))) (PyList_Append syspath (PyString_FromString ".")) )
+
+(let (modobject args fcnptr resobj)
+; import [filter.py](http://filter.py/) (setq modobject (PyImport_Import (PyString_FromString "filter")))
+; built the argument vector to send to the function in [filter.py](http://filter.py/) (setq args (Py_BuildValue "(s)" "Sample value"))
+; find the function filterFunc in the module (setq fcnptr (PyObject_GetAttrString modobject "filterFunc"))
+
+(Py_DecRef modobject) ; call the function on the arguments (setq resobj (PyObject_CallObject fcnptr args)) (Py_DecRef fcnptr) (Py_DecRef args)
+
+; and return the result which will be the given string ; converted to upper case
+
+(let ((ans (PyString_AsString resobj))) (Py_DecRef resobj) ans)))
+
+(def-foreign-call Py_GetVersion (:void) :returning ((* :char)) :strings-convert t)
+
+;; reference count
+
+(def-foreign-call Py_IncRef((object (* :void))) :returning :int)
+
+(def-foreign-call Py_DecRef((object (* :void))) :returning :int)
+
+(def-foreign-call PySys_GetObject ((name (* :char))) :returning ((* void)) :strings-convert t)
+
+;; calling function in the **main** module
+
+(def-foreign-call PyEval_GetGlobals (:void) :returning ((* :void)) :strings-convert t)
+
+(def-foreign-call PyRun_SimpleString((str (* :char))) :returning :int :strings-convert t)
+
+(defconstant Py_single_input 256)
+(defconstant Py_file_input 257)
+(defconstant Py_eval_input 258)
+
+(def-foreign-call PyRun_String((str (* :char)) (start :int) (globals (* :void)) (locals (* :void))) :returning ((* :void)) :strings-convert t)
+
+(def-foreign-call Py_CompileString((str (* :char)) (filename (* :char)) (kind-of-compile :int)) :returning ((* :void)) :strings-convert t )
+
+(def-foreign-call PyEval_EvalCode((codepointer (* :void)) (globals (* :void)) (locals (* :void))) :returning ((* :void)))
+
+(def-foreign-call PyImport_Import ((stringobject (* :void))) :returning ((* :void)) ; module object )
+
+; allow for any number of args
+(def-foreign-call Py_BuildValue () :returning ((* :void)) :strings-convert t)
+
+(def-foreign-call PyObject_GetAttrString((mod (* :void)) (name (* :char))) :returning ((* :void)) :strings-convert t)
+
+(def-foreign-call PyObject_CallObject ((fcnptr (* :void)) (argsobj (* :void))) :returning ((* :void)))
+
+;; objects
+
+; returns pointer to object
+
+(def-foreign-call PyInt_FromLong ((val :long)) :returning ((* void)))
+
+(def-foreign-call PyString_FromString ((val (* :char))) :returning ((* :void)) :strings-convert t)
+
+(def-foreign-call PyString_AsString ((obj (* :void))) :returning ((* :char)) :strings-convert t)
+
+(def-foreign-variable PyType_Type :type :unsigned-long)
+(def-foreign-variable PyInt_Type :type :unsigned-long)
+
+(def-foreign-call PyType_Check ((obj (* :void))) :returning :int)
+
+(def-foreign-call PyInt_Check ((obj (* :void))) :returning :int )
+
+(def-foreign-call PyInt_AsLong ((obj (* :void))) :returning :long )
+
+(def-foreign-call PyList_Append ((listobj (* :void)) (object (* :void))) :returning ((* :void)))
+
+(defun test () (Py_Initialize) ; add "." to the sys.path so we can import [filter.py](http://filter.py/) ; in the current directory (let ((syspath (PySys_GetObject "path"))) (PyList_Append syspath (PyString_FromString ".")) )
+
+(let (modobject args fcnptr resobj) ; import [filter.py](http://filter.py/) (setq modobject (PyImport_Import (PyString_FromString "filter")))
+
+; built the argument vector to send to the function in [filter.py](http://filter.py/) (setq args (Py_BuildValue "(s)" "Sample value"))
+
+; find the function filterFunc in the module (setq fcnptr (PyObject_GetAttrString modobject "filterFunc"))
+
+(Py_DecRef modobject) ; call the function on the arguments (setq resobj (PyObject_CallObject fcnptr args)) (Py_DecRef fcnptr) (Py_DecRef args)
+
+; and return the result which will be the given string ; converted to upper case
+
+(let ((ans (PyString_AsString resobj))) (Py_DecRef resobj) ans)))
+#+END_SRC
+
+** On Scientific Computing
+
+<2018-07-04 Wed, 20:10:45>
 
 About 2 months ago, I started trying to develop an experimental [[https://github.com/macdavid313/Chenyi][mathematics library]] for Common Lisp and today I realize I haven’t touched the code base for a while. The project itself seems to be a failure, however, now I have gained more experience and insights for numerical code written in Common Lisp.
 
@@ -115,10 +280,24 @@ To conclude, my experimental process is a success but the project may be conside
 
 See (read) more information of this topic here: [[*Scientific Computing][Scientific Computing]].
 
-** <2020-12-26 Sat>
+** Gray Streams
 
-*** Gray Streams
+<2020-12-26 Sat 17:31>
 
 CLiki link: [[https://www.cliki.net/Gray%20streams]]
 
 "Gray Streams" are a generic function wrapping of the COMMON-LISP streams in the standard library, allowing for further specialization by end-users. This interface was proposed for inclusion with ANSI CL by David N. Gray in Issue STREAM-DEFINITION-BY-USER(http://www.nhplace.com/kent/CL/Issues/stream-definition-by-user.html). The proposal did not make it into ANSI CL, but most popular CL implementations implement this facility anyway.
+
+* References
+
+- [[https://www.cs.cmu.edu/Groups/AI/html/cltl/cltl2.html][Common Lisp the Language, 2nd Edition]]
+  - [[https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/node1.html][Table of Contents]]
+  - [[https://www.cs.cmu.edu/Groups/AI/html/cltl/clm/index.html][Index]]
+- [[http://www.lispworks.com/documentation/HyperSpec/Front/X_Symbol.htm][Common Lisp HyperSpec]]
+- [[https://quickref.common-lisp.net/index-per-library.html][Quickref]]
+  - Reference manuals for Quicklisp libraries
+- [[https://www.cliki.net/][CLiki]]
+  - the common lisp wiki
+  - [[https://www.cliki.net/Lisp%20books][Lisp books]]
+- [[https://planet.lisp.org/][Planet LISP]]
+  - a meta blog that collects the contents of various Lisp-related blogs

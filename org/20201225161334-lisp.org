@@ -1,3 +1,20 @@
 #+title: Lisp
 
+#+BEGIN_QUOTE
 Welcome to the madness of parenthesis.
+#+END_QUOTE
+
+* [[file:20201225161440-common_lisp.org][Common Lisp]]
+
+#+CAPTION: The Alien Technology
+[[https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/17681018-40fe-4a81-aaf0-d1e57850bfe2/d9301iq-f12be086-c2d5-4eaf-9489-448083386e06.png]]
+
+* [[file:20201226211105-scheme.org][Scheme]]
+
+#+CAPTION: 麻雀虽小，五脏俱全
+[[https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Lambda_lc.svg/768px-Lambda_lc.svg.png]]
+
+* [[file:20201226211554-racket.org][Racket]]
+
+#+CAPTION: the DSL for writing DSLs
+[[https://racket-lang.org/img/racket-logo.svg]]

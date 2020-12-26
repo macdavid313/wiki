@@ -1,0 +1,3 @@
+#+title: Racket
+
+Racket is a general-purpose, multi-paradigm programming language based on the [[file:20201226211105-scheme.org][Scheme]] dialect of [[file:20201225161334-lisp.org][Lisp]].
