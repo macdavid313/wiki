@@ -1,4 +1,5 @@
 #+title: Common Lisp
+#+created: [2020-12-25 Fri]
 
 Common Lisp is a dialect of the [[file:20201225161334-lisp.org][Lisp]] programming language, published in [[https://en.wikipedia.org/wiki/American_National_Standards_Institute][ANSI]] standard document ANSI INCITS 226-1994 [S2008] (formerly X3.226-1994 (R1999)).
 
@@ -6,3 +7,119 @@ Common Lisp is a dialect of the [[file:20201225161334-lisp.org][Lisp]] programmi
 (defun hello-world ()
   (format t "Hello World!~%"))
 #+END_SRC
+
+* Libraries
+
+** Temperance
+
+A logic programming library for Common Lisp. Notably, it implements the [[file:20201226165028-warren_abstract_machine.org][Warren Abstract Machine]] in Common Lisp.
+
+Github link: [[https://github.com/sjl/temperance]]
+
+** Screamer
+
+Screamer is an extension of Common Lisp that adds support for nondeterministic programming.
+
+Link: [[https://nikodemus.github.io/screamer/]]
+
+* Articles
+
+- [[https://alhassy.github.io/TypedLisp.html][Typed Lisp, A Primer]]
+- [[https://medium.com/@MartinCracauer/llvms-garbage-collection-facilities-and-sbcl-s-generational-gc-a13eedfb1b31][LLVM's garbage collection facilities and SBCL's generational GC]]
+- [[https://www.multicians.org/lcp.html][Multics MACLISP Compiler]]
+- [[https://0branch.com/notes/tco-cl.html][Tail Call Optimisation in Common Lisp Implementations]]
+- [[https://www.lurklurk.org/cpp_clos.html][C++ and Lisp]]
+
+* Papers
+
+** Compiler
+
+*** [[https://app.readcube.com/][Pragmatic parsing in Common Lisp; or, putting defmacro on steroids]]
+
+** CLOS
+
+*** [[https://app.readcube.com/][CLOS: integrating object-oriented and functional programming]]
+*** [[https://app.readcube.com/][OWL-Full Reasoning from an Object Oriented Perspective]]
+
+** Scientific Computing
+
+*** [[https://dl.acm.org/doi/10.1145/200979.200989][Fast floating-point processing in Common Lisp]]
+*** [[https://link.springer.com/chapter/10.1007/978-3-642-19014-8_11][On Using Common Lisp for Scientific Computing]]
+*** [[https://www.researchgate.net/publication/265237896_Performance_Beyond_Expectations][Performance Beyond Expectations]]
+*** [[https://www.semanticscholar.org/paper/Beating-C-in-Scientific-Computing-Applications-On-1-Verna/240d0287c331866a78aedfc4dec1ee958e9b7ffd][Beating C in Scientific Computing Applications On the Behavior and Performance of LISP, Part 1]]
+*** [[https://www.semanticscholar.org/paper/When-lisp-is-faster-than-C-Svingen/afee947c390f5a1966ae8979ab02c9a95ee3fa86][When lisp is faster than C]]
+*** [[https://www.semanticscholar.org/paper/How-to-Make-Lisp-Go-Faster-than-C-Verna/0fe643dcbb8760031b7b630b0bef34f69db19c11][How to Make Lisp Go Faster than C]]
+
+* Notes
+
+** <2018-07-04 Wed>
+
+About 2 months ago, I started trying to develop an experimental [[https://github.com/macdavid313/Chenyi][mathematics library]] for Common Lisp and today I realize I haven’t touched the code base for a while. The project itself seems to be a failure, however, now I have gained more experience and insights for numerical code written in Common Lisp.
+
+The motivation at the beginning is rather straightforward — to achieve better performance, portability, and generality. Most numerical code require knowledge of algorithms and especially machine-specific properties, e.g. precision. For such a high-level language like Common Lisp, I have found the cost for abstractions is considerably high and actually ubiquitous. Most Common Lisp programmers do know how to optimize code by adding declarations, however, sometimes it is impossible to achieve the very ideal optimization due to the dynamic nature of Lisp. For example, consider this piece of code:
+
+#+BEGIN_SRC lisp
+(defun add1 (x)
+  (declare (double-float x)
+           (optimize speed (safety 0) (space 0)))
+  (the double-float (+ 1d0 x)))
+#+END_SRC
+
+When one compiles it in SBCL, it will report:
+
+#+BEGIN_SRC text
+doing float to pointer coercion (cost 13) to "<return value>"
+#+END_SRC
+
+The problem here is, since Common Lisp is dynamically typed, the return value of a function has to include the type information. As what I remember, the type tag in most implementations is stored in the low-order bits of a value. Of course, one way to solve this is by adding another declaration: ~(declaim (inline add1))~. But you definitely will not like to do it for every function, let alone for recursive functions it will probably fail to optimize. Therefore, people choose to call C functions through the foreign function interface for better performance, but it is perhaps not always a welcome solution if one’s programming on Windows.
+
+On the other hand, the standard of Common Lisp doesn’t specify the values of Infinity and NaN (not a number) but rather provides conditions like [[http://www.lispworks.com/documentation/HyperSpec/Body/e_floa_2.htm#floating-point-overflow][floating-point-overflow]] to handle arithmetic errors. I did take some [[https://github.com/macdavid313/Chenyi/blob/master/src/constants.lisp#L88][efforts]] to make Infinities and NaNs portably available on most implementations, however, there are minor problems on ECL, CMUCL, and the Windows platform.
+
+Last but not the least, I want to mention the library [[https://github.com/cosmos72/cl-parametric-types][cl-parametric-types]] if one wants to write generic code in a “special” dimension. I have made a [[https://github.com/cosmos72/cl-parametric-types/pull/7][pull request]] which makes the library also functional on AllegroCL, ECL and LispWorks besides others. For a simple use case, consider the add1 function shown above, by using cl-parametric-types, we may write it like this:
+
+#+BEGIN_SRC lisp
+(template (<t>)
+  (defun add1 (x)
+    (declare (type <t> x)
+             (optimize speed (safety 0) (space 0)))
+    (the <t> (+ (float 1 x) x))))
+#+END_SRC
+
+After compilation, you will get a macro ~add1~:
+
+#+BEGIN_SRC lisp
+CL-USER> (add1 (single-float) 1f0)
+; instantiating template-function (ADD1 SINGLE-FLOAT)
+;   as ADD1-SINGLE-FLOAT
+2.0
+CL-USER> (add1 (double-float) 1d0)
+; instantiating template-function (ADD1 DOUBLE-FLOAT)
+;   as ADD1-DOUBLE-FLOAT
+2.0d0
+CL-USER> (disassemble 'add1-single-float)
+; disassembly for ADD1-SINGLE-FLOAT
+; Size: 33 bytes. Origin: #x1003B88BDB
+; DB:       84042500001020   TEST AL, [#x20100000]            ; no-arg-parsing entry point
+                                                              ; safepoint
+; E2:       F30F580D96FFFFFF ADDSS XMM1, [RIP-106]            ; [#x1003B88B80]
+; EA:       660F7ECA         MOVD EDX, XMM1
+; EE:       48C1E220         SHL RDX, 32
+; F2:       4883CA19         OR RDX, 25
+; F6:       488BE5           MOV RSP, RBP
+; F9:       F8               CLC
+; FA:       5D               POP RBP
+; FB:       C3               RET
+NIL
+#+END_SRC
+
+To conclude, my experimental process is a success but the project may be considered a failure in the end. It simply requires too much work to resolve performance, portability, and generality at the same time, the complexity of it will become much worse and thus compromises will be unavoidable in the cases like linear algebra. In the past, there were a lot of smart people who tried to implement efficient mathematics libraries for Common Lisp. We have many experiences and insights to share with each other, but we must admit that non-trivial numerical code written in Common Lisp is honestly hard to be fairly perfect.
+
+See (read) more information of this topic here: [[*Scientific Computing][Scientific Computing]].
+
+** <2020-12-26 Sat>
+
+*** Gray Streams
+
+CLiki link: [[https://www.cliki.net/Gray%20streams]]
+
+"Gray Streams" are a generic function wrapping of the COMMON-LISP streams in the standard library, allowing for further specialization by end-users. This interface was proposed for inclusion with ANSI CL by David N. Gray in Issue STREAM-DEFINITION-BY-USER(http://www.nhplace.com/kent/CL/Issues/stream-definition-by-user.html). The proposal did not make it into ANSI CL, but most popular CL implementations implement this facility anyway.
