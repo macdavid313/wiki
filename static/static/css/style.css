@@ -3,28 +3,14 @@ html {
 }
 
 body {
-    font-family: 'Fira Code', monospace;
+    font-family: 'Noto Sans SC', sans;
     max-width: 800px;
     margin: 40px auto;
     padding: 0 10px;
-    color: #444
 }
 
 h1, h2, h3 {
     line-height: 1.2
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        color: white;
-        background: #444
-    }
-    a:link {
-        color: #5bf
-    }
-    a:visited {
-        color: #ccf
-    }
 }
 
 article {
@@ -45,7 +31,6 @@ img {
 }
 
 figcaption {
-    color: #888;
     font: 12px/1.5 monospace;
     text-align: center;
 }
@@ -68,8 +53,4 @@ figure {
     margin-bottom: 3%;
     margin-left: 5%;
     margin-right: 5%;
-}
-
-table, th, td {
-    border: 1px solid white;
 }

@@ -83,7 +83,7 @@
 (defvar site-head-extra
   "<link rel=\"shortcut icon\" href=\"/wiki/static/img/favicon.ico\">
 <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\">
-<link href=\"https://fonts.googleapis.com/css2?family=Fira+Code&family=JetBrains+Mono&display=swap\" rel=\"stylesheet\">
+<link href=\"https://fonts.googleapis.com/css2?family=Noto+Sans+SC&family=JetBrains+Mono&display=swap\" rel=\"stylesheet\">
 <link rel=\"stylesheet\" href=\"/wiki/static/css/style.css\">")
 
 (setq org-publish-project-alist
@@ -95,7 +95,7 @@
          :preparation-function prepare-publish
          :publishing-function org-html-publish-to-html
          :recursive t
-         :headline-levels 4
+         :headline-levels 3
          :with-toc t
          :html-doctype "html5"
          :html-html5-fancy t
