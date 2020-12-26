@@ -12,8 +12,3 @@ The most merciful thing in the world, I think, is the inability of the human min
 #+END_QUOTE
 
 You might have just come from my [[https://macdavid313.xyz][Homepage]]. This Wiki site contains various curations, notes and probably random ranting that I'd taken over some years. Enjoy!
-
-* Full Index
-
-- [[file:20201225161334-lisp.org][Lisp]]
-- [[file:20201225161440-common_lisp.org][Common Lisp]]

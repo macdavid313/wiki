@@ -31,8 +31,10 @@
 
 (defvar project-dir (getenv "PROJECT_DIR"))
 (defvar publish-dir (concat project-dir "/public_html"))
-(setq org-roam-directory (concat project-dir "/org"))
 (defvar publish-url "https://macdavid313.xyz/wiki")
+
+(setq org-roam-directory (concat project-dir "/org"))
+(setq org-roam-db-location (concat org-roam-directory "/org-roam.db"))
 ; -- End of set up
 
 (require 'ox-publish)
@@ -41,6 +43,39 @@
 ;; (require 's)
 ;; (require 'htmlize)
 
+;;; Utilities
+(defun collect-all-org-files-titles ()
+  "Traverse all org-roam files, sort by titles and return filenames and titles as pairs in an alist."
+  (cl-sort
+    (mapcar (lambda (f)
+              (let ((fname (concat (file-name-base f) ".org"))
+                    (title (with-current-buffer (find-file-read-only f)
+                             (let ((res (first (org-roam--extract-titles-title))))
+                               (kill-buffer-if-not-modified (current-buffer))
+                               res))))
+                (cons fname title)))
+            (org-roam--list-all-files))
+    #'string-lessp
+    :key #'cdr))
+
+(defun append-full-index ()
+  "Append all org files to index.org in a 'Full Index' section."
+  (with-temp-buffer
+    (insert "\n* Full Index\n\n")
+    (dolist (fname-title (collect-all-org-files-titles))
+      (when (not (string-equal (car fname-title) "index.org"))
+        (insert (format "- [[file:%s][%s]]\n"
+                        (car fname-title)
+                        (cdr fname-title)))))
+    (append-to-file (point-min) (point-max)
+                    (concat org-roam-directory "/index.org"))
+    (kill-buffer (current-buffer))))
+
+(defun prepare-publish (prop)
+  (progn
+    (append-full-index)))
+
+;;; Configurations for publishing
 (defvar site-preamble "")
 
 (defvar site-postamble "")
@@ -57,6 +92,7 @@
          :base-directory ,(concat project-dir "/org")
          :base-extension "org"
          :publishing-directory ,publish-dir
+         :preparation-function prepare-publish
          :publishing-function org-html-publish-to-html
          :recursive t
          :headline-levels 4
