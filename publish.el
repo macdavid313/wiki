@@ -35,6 +35,14 @@
 
 (setq org-roam-directory (concat project-dir "/org"))
 (setq org-roam-db-location (concat org-roam-directory "/org-roam.db"))
+;; Change the look of the graphviz graph a little.
+;; (setq org-roam-graph-extra-config)
+;; to allow setting a different URL for nodes on the graph
+;; (setq org-roam-graph-node-url-builder
+;;       (lambda (file)
+;;         (concat (url-hexify-string
+;;                  (file-name-sans-extension (file-name-nondirectory file)))
+;;                 ".html")))
 ; -- End of set up
 
 (require 'ox-publish)
