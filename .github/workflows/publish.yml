@@ -46,7 +46,8 @@ jobs:
         run: |
           npm install svgexport -g; \
           pushd public_html/static/img; \
-          svgexport graph.svg graph.png; \
+          svgexport graph.svg graph.png 100%; \
+          rm graph.svg; \
           popd
 
       - name: Import GPG key
