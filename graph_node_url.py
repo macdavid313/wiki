@@ -11,6 +11,7 @@ def update_node(node: bs4.element.Tag):
     canonical_url = "https://macdavid313.xyz/wiki/" + org_fname + ".html"
     title_tag.string = org_fname
     a_tag.attrs["xlink:href"] = canonical_url
+    a_tag.attrs["target"] = "_self"
 
 
 def update_all_nodes_urls(fpath: Path):
