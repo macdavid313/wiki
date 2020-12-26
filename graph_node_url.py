@@ -9,7 +9,7 @@ def update_node(node: bs4.element.Tag):
     a_tag = node.findChild("a")
     org_fname = Path(title_tag.string).name.split(".")[0]
     canonical_url = "https://macdavid313.xyz/wiki/" + org_fname + ".html"
-    title_tag.string = org_fname
+    # title_tag.string = org_fname
     a_tag.attrs["xlink:href"] = canonical_url
     a_tag.attrs["target"] = "_self"
 
