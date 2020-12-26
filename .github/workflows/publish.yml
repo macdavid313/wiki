@@ -28,9 +28,10 @@ jobs:
         with:
           version: snapshot
 
-      # wait for Ubuntu 20.10
-      # - name: Setup org-roam
-      #   run: sudo apt-get install
+      - name: "Setup python"
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
 
       - name: Install org-roam dependencies
         run: sudo apt-get install -y graphviz sqlite3 libsqlite3-dev
@@ -40,6 +41,11 @@ jobs:
           PROJECT_DIR=$(pwd) emacs --batch -Q \
               -L $(pwd) \
               --eval "(progn (require 'publish) (wiki/publish))"      
+      
+      - name: Update Graph Node Urls
+        run: |
+          python3.8 -m pip install --no--cache-dir -U pip setuptools beautifulsoup4; \
+          python3.8 -m graph_node_url          
 
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v3
