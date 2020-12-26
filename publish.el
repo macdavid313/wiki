@@ -50,7 +50,7 @@
     (mapcar (lambda (f)
               (let ((fname (concat (file-name-base f) ".org"))
                     (title (with-current-buffer (find-file-read-only f)
-                             (let ((res (first (org-roam--extract-titles-title))))
+                             (let ((res (car (org-roam--extract-titles-title))))
                                (kill-buffer-if-not-modified (current-buffer))
                                res))))
                 (cons fname title)))
