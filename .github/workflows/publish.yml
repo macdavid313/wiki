@@ -26,7 +26,12 @@ jobs:
       - name: Setup Emacs
         uses: purcell/setup-emacs@master
         with:
-          version: snapshot      
+          version: snapshot
+      
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
 
       - name: Install org-roam dependencies
         run: sudo apt-get install -y graphviz sqlite3 libsqlite3-dev
@@ -35,7 +40,14 @@ jobs:
         run: |
           PROJECT_DIR=$(pwd) emacs --batch -Q \
               -L $(pwd) \
-              --eval "(progn (require 'publish) (wiki/publish))"          
+              --eval "(progn (require 'publish) (wiki/publish))"
+
+      - name: Convert SVG -> PNG
+        run: |
+          npm install svgexport -g; \
+          pushd public_html/static/img; \
+          svgexport graph.svg graph.png; \
+          popd
 
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v3

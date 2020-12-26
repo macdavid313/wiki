@@ -83,7 +83,7 @@
   "Append all org files to index.org in a 'Full Index' section."
   (with-temp-buffer
     (insert "#+title: 全索引 (Full Index)\n")
-    (insert "\n[[http://macdavid313.xyz/wiki/static/img/graph.svg]]\n\n")
+    (insert "\n[[http://macdavid313.xyz/wiki/static/img/graph.png]]\n\n")
     (dolist (fname-title (collect-all-org-files-titles))
       (when (not (string-equal (car fname-title) "index.org"))
         (insert (format "- [[file:%s][%s]]\n"
