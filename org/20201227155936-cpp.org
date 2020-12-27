@@ -1,0 +1,12 @@
+#+title: C++
+#+roam_alias: "cpp"
+
+C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the [[file:20201227160533-c.org][C]] programming language, or "[[file:20201227160533-c.org][C]] with Classes".
+
+#+BEGIN_SRC C++
+#include <iostream>
+int main()
+{
+  std::cout << "Hello, world!\n";
+}
+#+END_SRC
