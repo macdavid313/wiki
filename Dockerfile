@@ -1,4 +1,3 @@
-# FROM silex/emacs:27.1-ci-cask 
 FROM python:3.8.7-alpine
 
 WORKDIR /usr/local/src
