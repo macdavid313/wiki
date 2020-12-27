@@ -3,8 +3,6 @@ FROM python:3.8.7-alpine
 
 WORKDIR /usr/local/src
 COPY publish.el ./
-COPY graph_node_url.py ./
-COPY requirements.txt ./
 COPY org/ ./org
 COPY static ./static
 
