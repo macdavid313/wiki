@@ -131,6 +131,7 @@
 (setq org-publish-project-alist
       `(("all" :components ("html" "assets"))
         ("html"
+         ;; General
          :base-directory ,(concat project-dir "/org")
          :base-extension "org"
          :publishing-directory ,publish-dir
@@ -139,6 +140,7 @@
          :recursive t
          :headline-levels 3
          :with-toc t
+         ;; HTML specific
          :html-doctype "html5"
          :html-html5-fancy t
          :html-preamble ,site-preamble
@@ -147,10 +149,10 @@
          :html-head-include-default-style t
          :html-head-extra ,site-head-extra
          :html-link-use-abs-url t
-         ;; :html-container "section"
          :htmlized-source nil
+         ;; Sitemap
          :auto-sitemap t
-         :sitemap-title "Recent changes"
+         :sitemap-title "近期修改 (Recent Changes)"
          :sitemap-sort-files anti-chronologically
          :sitemap-format-entry sitemap-format-entry
          :sitemap-filename "recent_changes.org")
@@ -158,7 +160,6 @@
          :base-directory ,(concat project-dir "/static")
          :base-extension any
          :publishing-directory ,publish-dir
-         ;; :exclude "node_modules"
          :recursive t
          :publishing-function org-publish-attachment)))
 
