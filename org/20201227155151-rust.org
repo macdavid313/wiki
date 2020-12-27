@@ -7,3 +7,19 @@ fn main() {
     println!("Hello, World");
 }
 #+END_SRC
+
+* Resources
+
+- [[https://www.youtube.com/watch?v=qbuTh1mIyHU&list=PL5aMzERQ_OZ8RWqn-XiZLXm1IJuaQbXp0][KAIST CS420: Compiler Design]]
+
+** Articles
+
+- [[https://willspeak.me/2019/07/10/lisp-in-two-days-with-rust.html][LISP in Two Days with Rust]]
+  + [[file:20201225161334-lisp.org][Lisp]]
+- [[http://hotforknowledge.com/2019/07/14/6-rust-the-new-c/][RUST AS THE NEW C. PART 1: BUILDING AND COMBINING NATIVE LIBS INTO C API]]
+  + [[file:20201227160533-c.org][C]]
+- [[https://bodil.lol/parser-combinators/][Learning Parser Combinators With Rust]]
+- [[https://mp.weixin.qq.com/s/1mYuEZjdVjiscOkqKkrbkg][Rust 编程 | 基于Y组合子实现闭包递归]]
+- [[https://blog.juliobiason.me/thoughts/why-rust-and-not-go/][Why Rust and not Go]]
+- [[https://stopa.io/post/222][Risp (in (Rust) (Lisp))]]
+  + [[file:20201225161334-lisp.org][Lisp]]

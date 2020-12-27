@@ -1,0 +1,14 @@
+#+title: .NET
+
+.NET is a software platform developed by Mircosoft.
+
+#+CAPTION .NET
+[[https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/.NET_Logo.svg/600px-.NET_Logo.svg.png]]
+
+* [[file:20201227163941-c.org][C#]]
+
+[[https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/C_Sharp_wordmark.svg/600px-C_Sharp_wordmark.svg.png]]
+
+* [[file:20201227164302-f.org][F#]]
+
+[[https://upload.wikimedia.org/wikipedia/commons/5/57/Fsharp_logo.png]]

@@ -3,10 +3,17 @@
 
 C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the [[file:20201227160533-c.org][C]] programming language, or "[[file:20201227160533-c.org][C]] with Classes".
 
-#+BEGIN_SRC C++
+#+BEGIN_SRC cpp
 #include <iostream>
-int main()
-{
-  std::cout << "Hello, world!\n";
-}
+int main() { std::cout << "Hello, World\n"; }
 #+END_SRC
+
+* Resources
+
+- [[https://awesomecpp.com/][Awesome Modern C++]]
+  - A collection of resources on modern C++
+  - The goal is to collect a list of resources to help people learn about and leverage modern C++11 and beyond.
+
+** Libraries
+
+- [[https://asmjit.com/][AsmJit]]

@@ -1,0 +1,8 @@
+#+title: F#
+#+roam_alias: "fsharp"
+
+F# is a functional-first, general purpose, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. F# is most often used as a cross-platform Common Language Infrastructure (CLI) language on [[file:20201227163827-net.org][.NET]], but it can also generate JavaScript and graphics processing unit (GPU) code.
+
+#+BEGIN_SRC fsharp
+printfn "Hello World!"
+#+END_SRC

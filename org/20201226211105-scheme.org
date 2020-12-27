@@ -8,28 +8,6 @@ Scheme is a *minimalist dialect* of the [[file:20201225161334-lisp.org][Lisp]] f
   (newline))
 #+END_SRC
 
-* Articles
-
-- [[https://scheme.com/debug/debug.html][How to Debug Chez Scheme Programs]]
-- [[https://www.yinwang.org/blog-cn/2013/04/11/scheme-setup][Scheme 编程环境的设置]]
-- [[https://www.yinwang.org/blog-cn/2013/03/28/chez-scheme][Chez Scheme 的传说]]
-- [[https://programmingpraxis.com/2017/10/03/chez-scheme-setup/][Chez Scheme Setup]]
-- [[http://fmnt.info/blog/20181029_scheme.html][Scheme for scientific computing]]
-- [[https://news.ycombinator.com/item?id=16406391][Chez is not JITted. Chez compiles to native binaries that run win the chez runtime (so not stand-alone).]]
-- [[http://matt.might.net/articles/programming-with-continuations--exceptions-backtracking-search-threads-generators-coroutines/][Continuations by example: Exceptions, time-traveling search, generators, threads, and coroutines]]
-- [[https://weinholt.se/articles/r7rs-vs-r6rs/][R7RS versus R6RS]]
-- [[https://hipster.home.xs4all.nl/lib/scheme/gauche/define-syntax-primer.txt?repost=repost][JRM's Syntax-rules Primer for the Merely Eccentric]]
-- [[https://web.archive.org/web/20200206200543/http://www.willdonnelly.net/blog/scheme-syntax-rules/][A Scheme Syntax-Rules Primer]]
-- [[https://web.archive.org/web/20181006202112/https://www.cs.indiana.edu/chezscheme/match/][Using Match]]
-  - describes a pattern matcher, unimaginatively called ~match~
-  - original source code available at [[https://web.archive.org/web/20160826073216/http://www.cs.indiana.edu/chezscheme/match/match.ss][here]]
-
-* Papers
-
-- [[https://www-sop.inria.fr/members/Manuel.Serrano/publi/jot04/jot04.html][Bigloo.NET: compiling Scheme to .NET CLR]]
-- [[https://guenchi.github.io/Scheme][Scheme Related Papers]]
-  - A list of papers related to Scheme, indexed alphabetically
-
 * Notes
 
 ** How to load ~libgsl.so~ in Chez Scheme
@@ -82,7 +60,43 @@ It'd be great to bring GMP integration to Chez.
 - [[https://github.com/rmculpepper/racket-gmp][racket-gmp]]
 - [[https://www.cs.colorado.edu/~srirams/courses/csci2824-spr14/gmpTutorial.html][Tutorial on GMP]]
 
-* Libraries
+* Resources
+
+- [[https://github.com/johnwcowan/r7rs-work/blob/master/R7RSHomePage.md][R7RS Home Page]]
+  - [[https://small.r7rs.org/][R7RS (Small)]]
+    + [[https://small.r7rs.org/attachment/r7rs.pdf][PDF]]
+- [[http://www.r6rs.org/][R6RS Home Page]]
+- [[https://cisco.github.io/ChezScheme/csug9.5/csug.html][Chez Scheme User's Guide]]
+- [[https://www.scheme.com/tspl4/][The Scheme Programming Language, 4th Edition]]
+- [[https://ecraven.github.io/r7rs-benchmarks/][Scheme Benchmarks]]
+- [[https://github.com/lambdaconservatory/scheme-release-archive][scheme-release-archive]]
+  - Source releases of old or obscure Scheme implementations
+
+** Articles
+
+- [[https://scheme.com/debug/debug.html][How to Debug Chez Scheme Programs]]
+- [[https://www.yinwang.org/blog-cn/2013/04/11/scheme-setup][Scheme 编程环境的设置]]
+- [[https://www.yinwang.org/blog-cn/2013/03/28/chez-scheme][Chez Scheme 的传说]]
+- [[https://programmingpraxis.com/2017/10/03/chez-scheme-setup/][Chez Scheme Setup]]
+- [[http://fmnt.info/blog/20181029_scheme.html][Scheme for scientific computing]]
+- [[https://news.ycombinator.com/item?id=16406391][Chez is not JITted. Chez compiles to native binaries that run win the chez runtime (so not stand-alone).]]
+- [[http://matt.might.net/articles/programming-with-continuations--exceptions-backtracking-search-threads-generators-coroutines/][Continuations by example: Exceptions, time-traveling search, generators, threads, and coroutines]]
+- [[https://weinholt.se/articles/r7rs-vs-r6rs/][R7RS versus R6RS]]
+- [[https://hipster.home.xs4all.nl/lib/scheme/gauche/define-syntax-primer.txt?repost=repost][JRM's Syntax-rules Primer for the Merely Eccentric]]
+- [[https://web.archive.org/web/20200206200543/http://www.willdonnelly.net/blog/scheme-syntax-rules/][A Scheme Syntax-Rules Primer]]
+- [[https://web.archive.org/web/20181006202112/https://www.cs.indiana.edu/chezscheme/match/][Using Match]]
+  - describes a pattern matcher, unimaginatively called ~match~
+  - original source code available at [[https://web.archive.org/web/20160826073216/http://www.cs.indiana.edu/chezscheme/match/match.ss][here]]
+
+** Papers
+
+- [[https://www-sop.inria.fr/members/Manuel.Serrano/publi/jot04/jot04.html][Bigloo.NET: compiling Scheme to .NET CLR]]
+  - [[file:20201227163827-net.org][.NET]]
+- [[https://dl.acm.org/doi/10.1145/583852.581503][Compiling scheme to JVM bytecode:: a performance study]]
+- [[https://guenchi.github.io/Scheme][Scheme Related Papers]]
+  - A list of papers related to Scheme, indexed alphabetically
+
+** Libraries
 
 - [[https://srfi.schemers.org/][SRFIs]]
 - [[https://github.com/ovenpasta/thunderchez][Thunderchez]]
@@ -97,15 +111,3 @@ It'd be great to bring GMP integration to Chez.
 - [[https://github.com/macdavid313/chez-finalize][chez-finalize]]
 - [[https://github.com/gwatt/chez-exe][chez-exe]]
   - Chez Scheme self hosting executable
-
-* Resources
-
-- [[https://github.com/johnwcowan/r7rs-work/blob/master/R7RSHomePage.md][R7RS Home Page]]
-  - [[https://small.r7rs.org/][R7RS (Small)]]
-    + [[https://small.r7rs.org/attachment/r7rs.pdf][PDF]]
-- [[http://www.r6rs.org/][R6RS Home Page]]
-- [[https://cisco.github.io/ChezScheme/csug9.5/csug.html][Chez Scheme User's Guide]]
-- [[https://www.scheme.com/tspl4/][The Scheme Programming Language, 4th Edition]]
-- [[https://ecraven.github.io/r7rs-benchmarks/][Scheme Benchmarks]]
-- [[https://github.com/lambdaconservatory/scheme-release-archive][scheme-release-archive]]
-  - Source releases of old or obscure Scheme implementations

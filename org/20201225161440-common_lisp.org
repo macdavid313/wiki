@@ -7,38 +7,6 @@ Common Lisp is a dialect of the [[file:20201225161334-lisp.org][Lisp]] programmi
   (format t "Hello World!~%"))
 #+END_SRC
 
-* Articles
-
-- [[https://alhassy.github.io/TypedLisp.html][Typed Lisp, A Primer]]
-- [[https://medium.com/@MartinCracauer/llvms-garbage-collection-facilities-and-sbcl-s-generational-gc-a13eedfb1b31][LLVM's garbage collection facilities and SBCL's generational GC]]
-- [[https://www.multicians.org/lcp.html][Multics MACLISP Compiler]]
-- [[https://0branch.com/notes/tco-cl.html][Tail Call Optimisation in Common Lisp Implementations]]
-- [[https://www.lurklurk.org/cpp_clos.html][C++ and Lisp]]
-- [[https://web.archive.org/web/20200109080251/http://home.pipeline.com/~hbaker1/Prag-Parse.html][Pragmatic Parsing in Common Lisp]]
-- [[https://bernsteinbear.com/blog/lisp/][Lisp implmentations]]
-  A series of blog posts illustrating how to implement a Lisp
-  - Writing a Lisp, the series
-  - Compiling a Lisp, the series
-
-* Papers
-
-** Compiler
-
-- [[https://app.readcube.com/][Pragmatic parsing in Common Lisp; or, putting defmacro on steroids]]
-
-** CLOS
-
-- [[https://app.readcube.com/][CLOS: integrating object-oriented and functional programming]]
-- [[https://app.readcube.com/][OWL-Full Reasoning from an Object Oriented Perspective]]
-
-** Scientific Computing
-
-- [[https://dl.acm.org/doi/10.1145/200979.200989][Fast floating-point processing in Common Lisp]]
-- [[https://link.springer.com/chapter/10.1007/978-3-642-19014-8_11][On Using Common Lisp for Scientific Computing]]
-- [[https://www.researchgate.net/publication/265237896_Performance_Beyond_Expectations][Performance Beyond Expectations]]
-- [[https://www.semanticscholar.org/paper/Beating-C-in-Scientific-Computing-Applications-On-1-Verna/240d0287c331866a78aedfc4dec1ee958e9b7ffd][Beating C in Scientific Computing Applications On the Behavior and Performance of LISP, Part 1]]
-- [[https://www.semanticscholar.org/paper/When-lisp-is-faster-than-C-Svingen/afee947c390f5a1966ae8979ab02c9a95ee3fa86][When lisp is faster than C]]
-- [[https://www.semanticscholar.org/paper/How-to-Make-Lisp-Go-Faster-than-C-Verna/0fe643dcbb8760031b7b630b0bef34f69db19c11][How to Make Lisp Go Faster than C]]
 
 * Notes
 
@@ -274,19 +242,6 @@ CLiki link: [[https://www.cliki.net/Gray%20streams]]
 
 "Gray Streams" are a generic function wrapping of the COMMON-LISP streams in the standard library, allowing for further specialization by end-users. This interface was proposed for inclusion with ANSI CL by David N. Gray in Issue STREAM-DEFINITION-BY-USER(http://www.nhplace.com/kent/CL/Issues/stream-definition-by-user.html). The proposal did not make it into ANSI CL, but most popular CL implementations implement this facility anyway.
 
-* Libraries
-
-** Temperance
-
-A logic programming library for Common Lisp. Notably, it implements the [[file:20201226165028-warren_abstract_machine.org][Warren Abstract Machine]] in Common Lisp.
-
-Github link: [[https://github.com/sjl/temperance]]
-
-** Screamer
-
-Screamer is an extension of Common Lisp that adds support for nondeterministic programming.
-
-Link: [[https://nikodemus.github.io/screamer/]]
 
 * Resources
 
@@ -301,3 +256,50 @@ Link: [[https://nikodemus.github.io/screamer/]]
   - [[https://www.cliki.net/Lisp%20books][Lisp books]]
 - [[https://planet.lisp.org/][Planet LISP]]
   - a meta blog that collects the contents of various Lisp-related blogs
+
+** Articles
+
+- [[https://alhassy.github.io/TypedLisp.html][Typed Lisp, A Primer]]
+- [[https://medium.com/@MartinCracauer/llvms-garbage-collection-facilities-and-sbcl-s-generational-gc-a13eedfb1b31][LLVM's garbage collection facilities and SBCL's generational GC]]
+- [[https://www.multicians.org/lcp.html][Multics MACLISP Compiler]]
+- [[https://0branch.com/notes/tco-cl.html][Tail Call Optimisation in Common Lisp Implementations]]
+- [[https://www.lurklurk.org/cpp_clos.html][C++ and Lisp]]
+- [[https://web.archive.org/web/20200109080251/http://home.pipeline.com/~hbaker1/Prag-Parse.html][Pragmatic Parsing in Common Lisp]]
+- [[https://bernsteinbear.com/blog/lisp/][Lisp implmentations]]
+  A series of blog posts illustrating how to implement a Lisp
+  - Writing a Lisp, the series
+  - Compiling a Lisp, the series
+
+** Papers
+
+*** Compiler
+
+- [[https://app.readcube.com/][Pragmatic parsing in Common Lisp; or, putting defmacro on steroids]]
+
+*** CLOS
+
+- [[https://app.readcube.com/][CLOS: integrating object-oriented and functional programming]]
+- [[https://app.readcube.com/][OWL-Full Reasoning from an Object Oriented Perspective]]
+
+*** Scientific Computing
+
+- [[https://dl.acm.org/doi/10.1145/200979.200989][Fast floating-point processing in Common Lisp]]
+- [[https://link.springer.com/chapter/10.1007/978-3-642-19014-8_11][On Using Common Lisp for Scientific Computing]]
+- [[https://www.researchgate.net/publication/265237896_Performance_Beyond_Expectations][Performance Beyond Expectations]]
+- [[https://www.semanticscholar.org/paper/Beating-C-in-Scientific-Computing-Applications-On-1-Verna/240d0287c331866a78aedfc4dec1ee958e9b7ffd][Beating C in Scientific Computing Applications On the Behavior and Performance of LISP, Part 1]]
+- [[https://www.semanticscholar.org/paper/When-lisp-is-faster-than-C-Svingen/afee947c390f5a1966ae8979ab02c9a95ee3fa86][When lisp is faster than C]]
+- [[https://www.semanticscholar.org/paper/How-to-Make-Lisp-Go-Faster-than-C-Verna/0fe643dcbb8760031b7b630b0bef34f69db19c11][How to Make Lisp Go Faster than C]]
+
+** Libraries
+
+*** Temperance
+
+A logic programming library for Common Lisp. Notably, it implements the [[file:20201226165028-warren_abstract_machine.org][Warren Abstract Machine]] in Common Lisp.
+
+Github link: [[https://github.com/sjl/temperance]]
+
+*** Screamer
+
+Screamer is an extension of Common Lisp that adds support for nondeterministic programming.
+
+Link: [[https://nikodemus.github.io/screamer/]]
