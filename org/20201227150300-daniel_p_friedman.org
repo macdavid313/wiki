@@ -1,0 +1,5 @@
+#+title: Daniel P. Friedman
+
+Daniel Paul Friedman (born 1944) is a professor of Computer Science at Indiana University in Bloomington, Indiana. His research focuses on programming languages, and he is a prominent author in the field.
+
+王垠曾经写过一篇关于 Daniel 的[[https://www.yinwang.org/blog-cn/2012/07/04/dan-friedman][文章 (GTF - Great Teacher Friedman)]]。

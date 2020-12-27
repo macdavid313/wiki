@@ -1,0 +1,4 @@
+#+title: Essentials of Programming Languages
+#+roam_alias: "EOPL"
+
+Essentials of Programming Languages (EOPL) is a textbook on programming languages by [[file:20201227150300-daniel_p_friedman.org][Daniel P. Friedman]], Mitchell Wand, and Christopher T. Haynes.

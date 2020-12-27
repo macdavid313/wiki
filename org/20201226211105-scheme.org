@@ -1,3 +1,110 @@
 #+title: Scheme
 
 Scheme is a *minimalist dialect* of the [[file:20201225161334-lisp.org][Lisp]] family of programming languages. Scheme consists of a small standard core with several tools for language extension.
+
+#+BEGIN_SRC scheme
+(define hello-world ()
+  (display "Hello, World")
+  (newline))
+#+END_SRC
+
+* Articles
+
+- [[https://scheme.com/debug/debug.html][How to Debug Chez Scheme Programs]]
+- [[https://www.yinwang.org/blog-cn/2013/04/11/scheme-setup][Scheme 编程环境的设置]]
+- [[https://www.yinwang.org/blog-cn/2013/03/28/chez-scheme][Chez Scheme 的传说]]
+- [[https://programmingpraxis.com/2017/10/03/chez-scheme-setup/][Chez Scheme Setup]]
+- [[http://fmnt.info/blog/20181029_scheme.html][Scheme for scientific computing]]
+- [[https://news.ycombinator.com/item?id=16406391][Chez is not JITted. Chez compiles to native binaries that run win the chez runtime (so not stand-alone).]]
+- [[http://matt.might.net/articles/programming-with-continuations--exceptions-backtracking-search-threads-generators-coroutines/][Continuations by example: Exceptions, time-traveling search, generators, threads, and coroutines]]
+- [[https://weinholt.se/articles/r7rs-vs-r6rs/][R7RS versus R6RS]]
+- [[https://hipster.home.xs4all.nl/lib/scheme/gauche/define-syntax-primer.txt?repost=repost][JRM's Syntax-rules Primer for the Merely Eccentric]]
+- [[https://web.archive.org/web/20200206200543/http://www.willdonnelly.net/blog/scheme-syntax-rules/][A Scheme Syntax-Rules Primer]]
+- [[https://web.archive.org/web/20181006202112/https://www.cs.indiana.edu/chezscheme/match/][Using Match]]
+  - describes a pattern matcher, unimaginatively called ~match~
+  - original source code available at [[https://web.archive.org/web/20160826073216/http://www.cs.indiana.edu/chezscheme/match/match.ss][here]]
+
+* Papers
+
+- [[https://www-sop.inria.fr/members/Manuel.Serrano/publi/jot04/jot04.html][Bigloo.NET: compiling Scheme to .NET CLR]]
+- [[https://guenchi.github.io/Scheme][Scheme Related Papers]]
+  - A list of papers related to Scheme, indexed alphabetically
+
+* Notes
+
+** How to load ~libgsl.so~ in Chez Scheme
+
+#+BEGIN_SRC bash
+# https://github.com/cisco/ChezScheme/issues/311
+LD_PRELOAD="libgslcblas.so libgsl.so" scheme
+#+END_SRC
+
+** Use Rust to make a “bridging” library for (Chez) Scheme?
+
+- Go
+  - [[https://github.com/go-interpreter/chezgo][chezgo]]
+- Python
+  - [[https://pyo3.rs/v0.13.0/][pyo3]]
+  - [[https://github.com/indygreg/PyOxidizer][PyOxidizer]]
+- Node.js
+  - [[https://neon-bindings.com/][neon]]
+- Ruby
+  - [[https://github.com/d-unseductable/ruru][ruru]]
+  - [[https://github.com/danielpclark/rutie][rutie]]
+  - [[https://deliveroo.engineering/2019/02/14/moving-from-ruby-to-rust.htm][Moving from Ruby to Rust]]
+
+** Chez Scheme Community
+
+- [[https://github.com/cisco/ChezScheme/issues/5][IRC Chatroom]]
+- [[https://github.com/cisco/ChezScheme/issues][Github Issues]]
+- [[https://groups.google.com/forum/#!forum/chez-scheme][Google Groups (Mailing list)]]
+
+** Port ~sllgen~ to R6RS?
+
+~sllgen~: Scheme LL(1) parser generator, used by [[file:20201227150000-essentials_of_programming_languages.org][EOPL]].
+
+[[https://github.com/chenyukang/eopl/blob/master/libs/sllgen.scm][source code]]
+
+** Make GMP work in Chez Scheme?
+
+As discussed in this [[https://github.com/cisco/ChezScheme/issues/14][issue: Poor performance when dealing with multi-precision numbers]]:
+
+#+BEGIN_QUOTE
+I'm actually happy to see issues related to performance. Good performance is, after all, one of our primary goals. It's true that a thorough comparison would involve a lot more and more careful benchmarking, but it's nice to have examples where we aren't doing as well as we could, especially if it motivates contributors to submit fixes.
+
+Using gmp would indeed speed up programs that operate on large numbers, particularly programs that multiply and divide very large numbers. Licensing is the primary issue blocking us from using it. Another is that our own, different representation of bignums is baked into the compiler and run-time system in a couple of ways.
+#+END_QUOTE
+
+It'd be great to bring GMP integration to Chez.
+
+- [[https://gmplib.org/manual][GNU MP Manual]]
+- [[https://github.com/rmculpepper/racket-gmp][racket-gmp]]
+- [[https://www.cs.colorado.edu/~srirams/courses/csci2824-spr14/gmpTutorial.html][Tutorial on GMP]]
+
+* Libraries
+
+- [[https://srfi.schemers.org/][SRFIs]]
+- [[https://github.com/ovenpasta/thunderchez][Thunderchez]]
+- [[https://github.com/macdavid313/chezure][Chezure]]
+- [[https://github.com/becls/swish][Swish]]
+- [[https://github.com/dybvig/stex][stex]]
+- [[https://github.com/nanopass/nanopass-framework-scheme][nanopass]]
+- [[https://github.com/macdavid313/define-datatype][define-datatype]]
+  - port of ~define-datatype~ from [[file:20201227150000-essentials_of_programming_languages.org][EOPL]]
+- [[https://github.com/macdavid313/chez-string-metrics][chez-string-metrics]]
+  - various string metrics efficiently in Chez Scheme, e.g. Levenshtein
+- [[https://github.com/macdavid313/chez-finalize][chez-finalize]]
+- [[https://github.com/gwatt/chez-exe][chez-exe]]
+  - Chez Scheme self hosting executable
+
+* References
+
+- [[https://github.com/johnwcowan/r7rs-work/blob/master/R7RSHomePage.md][R7RS Home Page]]
+  - [[https://small.r7rs.org/][R7RS (Small)]]
+    + [[https://small.r7rs.org/attachment/r7rs.pdf][PDF]]
+- [[http://www.r6rs.org/][R6RS Home Page]]
+- [[https://cisco.github.io/ChezScheme/csug9.5/csug.html][Chez Scheme User's Guide]]
+- [[https://www.scheme.com/tspl4/][The Scheme Programming Language, 4th Edition]]
+- [[https://ecraven.github.io/r7rs-benchmarks/][Scheme Benchmarks]]
+- [[https://github.com/lambdaconservatory/scheme-release-archive][scheme-release-archive]]
+  - Source releases of old or obscure Scheme implementations
