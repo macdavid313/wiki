@@ -101,8 +101,24 @@
     (build-graph/graphviz)
     (append-full-index)))
 
+(defun sitemap-format-entry (entry _style project)
+  "Return string for each ENTRY in PROJECT."
+  (format "@@html:<span class=\"archive-item\"><span class=\"archive-date\">@@ %s @@html:</span>@@ [[file:%s][%s]] @@html:</span>@@"
+          (format-time-string "%d %h %Y"
+                              (org-publish-find-date entry project))
+          entry
+          (org-publish-find-title entry project)))
+;;; -- end of Utilities
+
 ;;; Configurations for publishing
-(defvar site-preamble "")
+(defvar site-preamble "<header>
+<p><nav>
+<a href=\"https://macdavid313.xyz/wiki/\"><b>wiki</b></a>.
+<a href=\"https://macdavid313.xyz/wiki/full_index.html\"><b>full index</b></a>.
+<a href=\"https://macdavid313.xyz/wiki/recent_changes.html\"><b>recent changes</b></a>.
+<a href=\"https://macdavid313.xyz/\"><b>homepage</b></a>.
+</nav></p>
+</header>")
 
 (defvar site-postamble "")
 
@@ -132,13 +148,12 @@
          :html-head-extra ,site-head-extra
          :html-link-use-abs-url t
          ;; :html-container "section"
-         :htmlized-source nil)
-         ;; :auto-sitemap t)
-         ;; :exclude "node_modules"
-         ;; :sitemap-title "Recent changes"
-         ;; :sitemap-sort-files anti-chronologically
-         ;; :sitemap-format-entry commonplace/sitemap-format-entry
-         ;; :sitemap-filename "recentchanges.org")
+         :htmlized-source nil
+         :auto-sitemap t
+         :sitemap-title "Recent changes"
+         :sitemap-sort-files anti-chronologically
+         :sitemap-format-entry sitemap-format-entry
+         :sitemap-filename "recent_changes.org")
         ("assets"
          :base-directory ,(concat project-dir "/static")
          :base-extension any
