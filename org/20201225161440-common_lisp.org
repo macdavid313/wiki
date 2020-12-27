@@ -7,20 +7,6 @@ Common Lisp is a dialect of the [[file:20201225161334-lisp.org][Lisp]] programmi
   (format t "Hello World!~%"))
 #+END_SRC
 
-* Libraries
-
-** Temperance
-
-A logic programming library for Common Lisp. Notably, it implements the [[file:20201226165028-warren_abstract_machine.org][Warren Abstract Machine]] in Common Lisp.
-
-Github link: [[https://github.com/sjl/temperance]]
-
-** Screamer
-
-Screamer is an extension of Common Lisp that adds support for nondeterministic programming.
-
-Link: [[https://nikodemus.github.io/screamer/]]
-
 * Articles
 
 - [[https://alhassy.github.io/TypedLisp.html][Typed Lisp, A Primer]]
@@ -287,6 +273,20 @@ See (read) more information of this topic here: [[*Scientific Computing][Scienti
 CLiki link: [[https://www.cliki.net/Gray%20streams]]
 
 "Gray Streams" are a generic function wrapping of the COMMON-LISP streams in the standard library, allowing for further specialization by end-users. This interface was proposed for inclusion with ANSI CL by David N. Gray in Issue STREAM-DEFINITION-BY-USER(http://www.nhplace.com/kent/CL/Issues/stream-definition-by-user.html). The proposal did not make it into ANSI CL, but most popular CL implementations implement this facility anyway.
+
+* Libraries
+
+** Temperance
+
+A logic programming library for Common Lisp. Notably, it implements the [[file:20201226165028-warren_abstract_machine.org][Warren Abstract Machine]] in Common Lisp.
+
+Github link: [[https://github.com/sjl/temperance]]
+
+** Screamer
+
+Screamer is an extension of Common Lisp that adds support for nondeterministic programming.
+
+Link: [[https://nikodemus.github.io/screamer/]]
 
 * References
 
