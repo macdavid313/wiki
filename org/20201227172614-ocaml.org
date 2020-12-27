@@ -7,3 +7,8 @@ The OCaml toolchain includes an interactive top-level interpreter, a bytecode co
 #+BEGIN_SRC ocaml
 print_endline "Hello World!"
 #+END_SRC
+
+* Resources
+
+- [[https://ocaml.org/][Home Page]]
+- [[https://www.ffconsultancy.com/ocaml/hlvm/index.html][High-Level Virtual Machine (HLVM)]]

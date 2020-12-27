@@ -49,6 +49,7 @@ IDEs and Tools.
 ** Articles
 
 - [[https://www.lucabol.com/posts/2019-12-06-status-of-csharp-8-functional-features-with-a-comparison-to-haskell/][Status of C# 8.0 functional features with a comparison to Haskell]]
+- [[https://www.lucabol.com/posts/2018-06-04-a-stack-data-structure-implementation-using-span/][A Stack data structure implementation using Span]]
 - [[https://weblogs.asp.net/dixin/linq-via-csharp][Expert Functional Programming and LINQ via C#]]
 - Category Theory via C#
   - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-1-fundamentals][Fundamentals]]
