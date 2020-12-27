@@ -97,7 +97,7 @@ It'd be great to bring GMP integration to Chez.
 - [[https://github.com/gwatt/chez-exe][chez-exe]]
   - Chez Scheme self hosting executable
 
-* References
+* Resources
 
 - [[https://github.com/johnwcowan/r7rs-work/blob/master/R7RSHomePage.md][R7RS Home Page]]
   - [[https://small.r7rs.org/][R7RS (Small)]]
