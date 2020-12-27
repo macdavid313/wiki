@@ -75,6 +75,9 @@
     ;; FIXME: find a better way to do it properly
     (call-process "dot" nil 0 nil tmp-dot "-Tsvg" "-o" tmp-graph)
     (sit-for 2)
+    ;; (copy-file tmp-dot
+    ;;            (concat project-dir "/static/static/graph.dot")
+    ;;            't)
     (copy-file tmp-graph
                (concat project-dir "/static/static/img/graph.svg")
                't)))
@@ -83,14 +86,17 @@
   "Append all org files to index.org in a 'Full Index' section."
   (with-temp-buffer
     (insert "#+title: 全索引 (Full Index)\n#+OPTIONS: toc:nil\n\n")
-    (insert "* Graph\n")
-    (insert "\n[[http://macdavid313.xyz/wiki/static/img/graph.png]]\n\n")
+    (insert "* Graph\n\n")
+    ;; (insert "@@html:<div id=\"network\">@@ @@html:</div>@@\n")
+    (insert "[[http://macdavid313.xyz/wiki/static/img/graph.png]]\n\n")
     (insert "* Links\n\n")
     (dolist (fname-title (collect-all-org-files-titles))
       (when (not (string-equal (car fname-title) "index.org"))
         (insert (format "- [[file:%s][%s]]\n"
                         (car fname-title)
                         (cdr fname-title)))))
+    ;; (insert "\n\n@@html:<script type=\"text/javascript\" src=\"https://unpkg.com/vis-network/standalone/umd/vis-network.min.js\">@@ @@html:</script>@@\n")
+    ;; (insert "@@html:<script type=\"text/javascript\" src=\"/wiki/static/js/network.js\">@@ @@html:</script>@@\n")
     (append-to-file (point-min) (point-max)
                     (concat org-roam-directory "/full_index.org"))
     (kill-buffer (current-buffer))))
@@ -111,16 +117,10 @@
 ;;; -- end of Utilities
 
 ;;; Configurations for publishing
-(defvar site-preamble "<header>
-<p><nav>
-<a href=\"https://macdavid313.xyz/wiki/\"><b>wiki</b></a>.
-<a href=\"https://macdavid313.xyz/wiki/full_index.html\"><b>full index</b></a>.
-<a href=\"https://macdavid313.xyz/wiki/recent_changes.html\"><b>recent changes</b></a>.
-<a href=\"https://macdavid313.xyz/\"><b>homepage</b></a>.
-</nav></p>
-</header>")
+(defvar site-preamble "")
 
-(defvar site-postamble "")
+(defvar site-postamble 
+  "<script type=\"text/javascript\" src=\"/wiki/static/js/script.js\"></script>")
 
 (defvar site-head-extra
   "<link rel=\"shortcut icon\" href=\"/wiki/static/img/favicon.ico\">

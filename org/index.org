@@ -1,9 +1,7 @@
 #+TITLE: 维基 (Wiki)
 #+OPTIONS: toc:nil
 
-#+BEGIN_CENTER
 *欢迎来到我的维基页面！Welcome to my Wiki!*
-#+END_CENTER
 
 You might have just come from my [[https://macdavid313.xyz][Homepage]]. This Wiki site contains various curations, notes and probably random ranting that I'd taken over some years. Enjoy!
 
