@@ -1,3 +1,26 @@
 #+title: Prolog
 
 Prolog is a logic programming language associated with artificial intelligence and computational linguistics.
+
+* Resources
+
+- [[https://www.swi-prolog.org/][SWI Prolog]]
+- [[http://www.gprolog.org/][GNU Prolog]]
+- [[file:20201226165028-warren_abstract_machine.org][Warren Abstract Machine]]
+- [[https://www.cs.nmsu.edu/ALP/][Association for Logic Programming]]
+
+** [[https://www.metalevel.at/prolog][The Power of Prolog]]
+
+All videos is available at: [[https://www.metalevel.at/prolog/videos/]]
+
+Github link: [[https://github.com/triska/the-power-of-prolog]]
+
+** [[http://www.jens-otten.de/tutorial_tableaux19/][How to Build an Automated Theorem Prover]]
+
+Invited Tutorial at [[https://tableaux2019.org/][TABLEAUX 2019]] in London/UK.
+
+** Articles
+
+- [[https://www.cs.nmsu.edu/ALP/2011/03/natural-language-processing-with-prolog-in-the-ibm-watson-system/][Natural Language Processing With Prolog in the IBM Watson System]]
+- [[https://www.cs.nmsu.edu/ALP/2011/03/a-pearl-on-sat-solving-in-prolog-extended-abstract/][A Pearl on SAT Solving in Prolog (extended abstract)]]
+- [[https://www.metalevel.at/prolog/efficiency][Efficiency of Prolog]]

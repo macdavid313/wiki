@@ -1,3 +1,23 @@
 #+title: Racket
 
 Racket is a general-purpose, multi-paradigm programming language based on the [[file:20201226211105-scheme.org][Scheme]] dialect of [[file:20201225161334-lisp.org][Lisp]].
+
+#+BEGIN_SRC racket
+#lang racket
+"Hello, World!"
+#+END_SRC
+
+* Resources
+
+** Books
+
+- [[https://htdp.org/][How to Design Programs]]
+- [[https://nostarch.com/realmofracket.htm][Realm of Racket]]
+- [[https://beautifulracket.com/][Beautiful Racket]]
+- [[https://gumroad.com/l/lop-in-racket-cultural-anthro][Language-oriented Programming in Racket: A Cultural Anthropology (2020 edition)]]
+
+** Articles
+
+- [[https://queue.acm.org/detail.cfm?id=2068896][Creating Languages in Racket]]
+- [[https://notamonadtutorial.com/rebuilding-the-racket-compiler-with-chez-scheme-210e23a69484][Rebuilding the Racket Compiler with Chez Scheme]]
+  + An interview on Racket CS with programmers Gustavo Massaccesi Matthew Flatt
