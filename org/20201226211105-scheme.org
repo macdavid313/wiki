@@ -34,12 +34,13 @@ Scheme is a *minimalist dialect* of the [[file:20201225161334-lisp.org][Lisp]] f
 
 ** How to load ~libgsl.so~ in Chez Scheme
 
+See [[https://github.com/cisco/ChezScheme/issues/311][here]].
+
 #+BEGIN_SRC bash
-# https://github.com/cisco/ChezScheme/issues/311
 LD_PRELOAD="libgslcblas.so libgsl.so" scheme
 #+END_SRC
 
-** Use Rust to make a “bridging” library for (Chez) Scheme?
+** Use [[file:20201227155151-rust.org][Rust]] to make a “bridging” library for (Chez) Scheme?
 
 - Go
   - [[https://github.com/go-interpreter/chezgo][chezgo]]
@@ -67,7 +68,7 @@ LD_PRELOAD="libgslcblas.so libgsl.so" scheme
 
 ** Make GMP work in Chez Scheme?
 
-As discussed in this [[https://github.com/cisco/ChezScheme/issues/14][issue: Poor performance when dealing with multi-precision numbers]]:
+As discussed in this [[https://github.com/cisco/ChezScheme/issues/14][issue: Poor performance when dealing with multi-precision numbers]], Dybvig [[https://github.com/cisco/ChezScheme/issues/14#issuecomment-215066762][wrote]]:
 
 #+BEGIN_QUOTE
 I'm actually happy to see issues related to performance. Good performance is, after all, one of our primary goals. It's true that a thorough comparison would involve a lot more and more careful benchmarking, but it's nice to have examples where we aren't doing as well as we could, especially if it motivates contributors to submit fixes.

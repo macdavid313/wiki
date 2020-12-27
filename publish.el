@@ -23,7 +23,7 @@
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
-(dolist (pkg '(org-roam))
+(dolist (pkg '(org-roam htmlize))
   (package-install pkg))
 
 ;;; Don't create backup files (those ending with ~) during the publish process.
@@ -48,8 +48,7 @@
 (require 'ox-publish)
 (require 'ox-html)
 (require 'org-roam)
-;; (require 's)
-;; (require 'htmlize)
+(require 'htmlize)
 
 ;;; Utilities
 (defun collect-all-org-files-titles ()
