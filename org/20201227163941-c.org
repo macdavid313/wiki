@@ -16,3 +16,46 @@ class Program
     }
 }
 #+END_SRC
+
+* Resources
+
+** [[file:20201227170020-common_intermediate_language.org][Common Intermediate Language]]
+
+- [[https://github.com/macdavid313/languages-zoo/tree/master/src/Brainfuck][Compiling Brainfuck to .NET IL]]
+- [[https://reubenbond.github.io/posts/codegen-2-il-boogaloo][.NET IL Generation - Writing DeepCopy]]
+- [[https://docs.microsoft.com/en-us/archive/blogs/lucian/the-limitations-of-reflection-emit][The limitations of Reflection.Emit]]
+- Compiling [[file:20201226211105-scheme.org][Scheme]] programs to CIL
+  - [[file:20201226211105-scheme.org::*Papers][Paper]]
+
+** Dynamic Language Runtime (DLR)
+
+- [[https://en.wikipedia.org/wiki/Dynamic_Language_Runtime][Wikipedia page]]
+- [[https://github.com/IronLanguages/dlr/tree/master/Docs][Documentation]]
+  - from [[https://github.com/IronLanguages/dlr][Github repo]]
+- [[https://docs.microsoft.com/en-us/dotnet/framework/reflection-and-codedom/dynamic-language-runtime-overview][Dynamic Language Runtime Overview]]
+- [[https://www.aosabook.org/en/ironlang.html][The Dynamic Language Runtime and the Iron Languages]]
+- DLR using Reflection.Emit (In Depth)
+  - [[http://www.abhisheksur.com/2010/10/dlr-using-reflectionemit-in-depth-part.html][Part 1]]
+  - [[http://www.abhisheksur.com/2010/10/dlr-using-reflectionemit-in-depth-part_24.html][Part 2]]
+
+** Productivity
+
+IDEs and Tools.
+
+- [[https://code.visualstudio.com/Docs/languages/csharp][Working with C#]]
+- [[https://stackify.com/visual-studio-rider/][Visual Studio versus Rider]]
+- [[https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code][Tutorial: Create a .NET console application using Visual Studio Code]]
+
+** Articles
+
+- [[https://www.lucabol.com/posts/2019-12-06-status-of-csharp-8-functional-features-with-a-comparison-to-haskell/][Status of C# 8.0 functional features with a comparison to Haskell]]
+- [[https://weblogs.asp.net/dixin/linq-via-csharp][Expert Functional Programming and LINQ via C#]]
+- Category Theory via C#
+  - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-1-fundamentals][Fundamentals]]
+  - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-2-monoid][Monoid]]
+  - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-3-functor-and-linq-to-functors][Functor and LINQ to Functors]]
+  - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-4-natural-transformation][Natural Transformation]]
+  - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-5-bifunctor][Bifunctor]]
+  - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-6-monoidal-functor-and-applicative-functor][Monoidal Functor and Applicative Functor]]
+  - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-7-monad-and-linq-to-monads][Monad and LINQ to Monads]]
+  - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-8-more-linq-to-monads][Advanced LINQ to Monads]]

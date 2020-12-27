@@ -12,3 +12,5 @@
 * [[file:20201227164302-f.org][F#]]
 
 [[https://upload.wikimedia.org/wikipedia/commons/5/57/Fsharp_logo.png]]
+
+* [[file:20201227170020-common_intermediate_language.org][Common Intermediate Language]]

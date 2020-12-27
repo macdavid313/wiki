@@ -87,6 +87,8 @@ It'd be great to bring GMP integration to Chez.
 - [[https://web.archive.org/web/20181006202112/https://www.cs.indiana.edu/chezscheme/match/][Using Match]]
   - describes a pattern matcher, unimaginatively called ~match~
   - original source code available at [[https://web.archive.org/web/20160826073216/http://www.cs.indiana.edu/chezscheme/match/match.ss][here]]
+- [[https://wespiser.com/writings/wyas/home.html][Write You A Scheme, Version 2]]
+- [[file:20201227164302-f.org::*Write Yourself a Scheme in 48 Hours in F#][Write Yourself a Scheme in 48 Hours in F#]]
 
 ** Papers
 

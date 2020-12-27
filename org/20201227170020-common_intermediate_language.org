@@ -1,0 +1,10 @@
+#+title: Common Intermediate Language
+#+roam_alias: "CIL"
+
+Common Intermediate Language (CIL), formerly called Microsoft Intermediate Language (MSIL) or Intermediate Language (IL), is the intermediate language binary instruction set defined within the Common Language Infrastructure (CLI) specification.
+
+* Resources
+
+- [[https://en.wikipedia.org/wiki/Common_Intermediate_Language][Wikipedia page]]
+- [[https://en.wikipedia.org/wiki/List_of_CIL_instructions][List of CIL instructions]]
+- [[file:20201227164302-f.org::*Writing a MiniC-to-MSIL compiler in F#][Writing a MiniC-to-MSIL compiler in F#]]

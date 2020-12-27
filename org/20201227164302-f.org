@@ -3,6 +3,40 @@
 
 F# is a functional-first, general purpose, strongly typed, multi-paradigm programming language that encompasses functional, imperative, and object-oriented programming methods. F# is most often used as a cross-platform Common Language Infrastructure (CLI) language on [[file:20201227163827-net.org][.NET]], but it can also generate JavaScript and graphics processing unit (GPU) code.
 
+F# is a member of the ML language family and originated as a .NET implementation of a core of the programming language [[file:20201227172614-ocaml.org][OCaml]].
+
 #+BEGIN_SRC fsharp
 printfn "Hello World!"
 #+END_SRC
+
+* Resources
+
+** Write Yourself a Scheme in 48 Hours in F#
+
+- [[https://www.lucabol.com/posts/2011-06-30-write-yourself-a-scheme-in-48-hours-in-f-part-i/][Part I]]
+- [[https://www.lucabol.com/posts/2011-07-08-write-yourself-a-scheme-in-48-hours-in-f-part-ii/][Part II]]
+- [[https://www.lucabol.com/posts/2011-07-15-write-yourself-a-scheme-in-48-hours-in-f-part-iii/][Part III]]
+- [[https://www.lucabol.com/posts/2011-07-22-write-yourself-a-scheme-in-48-hours-part-iv/][Part IV]]
+- [[https://www.lucabol.com/posts/2011-07-29-write-yourself-a-scheme-in-48-hours-part-iv-2/][Part V]]
+- [[https://www.lucabol.com/posts/2011-08-05-write-yourself-a-scheme-in-48-hours-in-f-part-vi/][Part VI]]
+- [[https://www.lucabol.com/posts/2011-08-12-write-yourself-a-scheme-in-48-hours-in-f-part-vii/][Part VII]]
+
+** Writing a MiniC-to-MSIL compiler in F#
+
+- [[http://timjones.io/blog/archive/2014/04/13/writing-a-minic-to-msil-compiler-in-fsharp-part-0-introduction][Part 0 - Introduction]]
+- [[http://timjones.io/blog/archive/2014/04/20/writing-a-minic-to-msil-compiler-in-fsharp-part-1-defining-the-abstract-syntax-tree][Part 1 - Defining the abstract syntax tree]]
+- [[http://timjones.io/blog/archive/2014/05/29/writing-a-minic-to-msil-compiler-in-fsharp-part-2-lexing-and-parsing][Part 2 - Lexing and parsing]]
+- [[http://timjones.io/blog/archive/2014/06/20/writing-a-minic-to-msil-compiler-in-fsharp-part-3-semantic-analysis][Part 3 - Semantic analysis]]
+- [[http://timjones.io/blog/archive/2014/08/23/writing-a-minic-to-msil-compiler-in-fsharp-part-4-building-the-intermediate-representation][Part 4 - Building the intermediate representation]]
+- [[http://timjones.io/blog/archive/2014/09/13/writing-a-minic-to-msil-compiler-in-fsharp-part-5-code-generation][Part 5 - Code generation]]
+- [[http://timjones.io/blog/archive/2014/09/14/writing-a-minic-to-msil-compiler-in-fsharp-part-6-conclusion][Part 6 - Conclusion]]
+
+** Books
+
+- [[https://zaid-ajaj.github.io/the-elmish-book/#/][The Elmish Book]]
+  - The Elmish Book is a practical guide to building modern and reliable web applications in F# from first principles.
+
+** Articles
+
+- [[https://nick-fisher.com/articles/building-a-dialog-system-with-fsharp-parser-combinators/][Building a dialog system with F# parser combinators]]
+- [[https://phillipcarter.dev/posts/benchmarking-fsharp.html][How to use BenchmarkDotNet with F#]]
