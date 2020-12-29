@@ -2,6 +2,12 @@
 
 Prolog is a logic programming language associated with artificial intelligence and computational linguistics.
 
+#+BEGIN_SRC
+?- write('Hello World!'), nl.
+Hello World!
+true.
+#+END_SRC
+
 * Resources
 
 - [[https://www.swi-prolog.org/][SWI Prolog]]
