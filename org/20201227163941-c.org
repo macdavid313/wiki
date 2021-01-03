@@ -60,3 +60,4 @@ IDEs and Tools.
   - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-6-monoidal-functor-and-applicative-functor][Monoidal Functor and Applicative Functor]]
   - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-7-monad-and-linq-to-monads][Monad and LINQ to Monads]]
   - [[https://weblogs.asp.net/dixin/category-theory-via-csharp-8-more-linq-to-monads][Advanced LINQ to Monads]]
+- [[https://vkontech.com/a-practical-intro-to-covariance-and-contravariance-in-c/][A Practical Intro to Covariance and Contravariance in C#]]
