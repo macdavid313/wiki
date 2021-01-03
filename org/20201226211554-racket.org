@@ -21,3 +21,4 @@ Racket is a general-purpose, multi-paradigm programming language based on the [[
 - [[https://queue.acm.org/detail.cfm?id=2068896][Creating Languages in Racket]]
 - [[https://notamonadtutorial.com/rebuilding-the-racket-compiler-with-chez-scheme-210e23a69484][Rebuilding the Racket Compiler with Chez Scheme]]
   + An interview on Racket CS with programmers Gustavo Massaccesi Matthew Flatt
+- [[https://micahcantor.xyz/blog/simple-hash-racket][Implementing Simple Hash Tables in Racket]]
