@@ -12,6 +12,10 @@ fn main() {
 
 - [[https://www.youtube.com/watch?v=qbuTh1mIyHU&list=PL5aMzERQ_OZ8RWqn-XiZLXm1IJuaQbXp0][KAIST CS420: Compiler Design]]
 
+** Books
+
+- [[https://dhghomon.github.io/easy_rust/Chapter_1.html][Easy Rust]]
+
 ** Articles
 
 - [[https://willspeak.me/2019/07/10/lisp-in-two-days-with-rust.html][LISP in Two Days with Rust]]
