@@ -1,3 +1,9 @@
 #+title: Warren Abstract Machine
 
-In 1983, David H. D. Warren designed an abstract machine for the execution of [[file:20201226165120-prolog.org][Prolog]] consisting of a memory architecture and an instruction set.[1][2][3] This design became known as the Warren Abstract Machine (WAM) and has become the de facto standard target for Prolog compilers.
+In 1983, David H. D. Warren designed an abstract machine for the execution of [[file:20201226165120-prolog.org][Prolog]] consisting of a memory architecture and an instruction set. This design became known as the [[https://en.wikipedia.org/wiki/Warren_Abstract_Machine][Warren Abstract Machine (WAM)]] and has become the de facto standard target for Prolog compilers.
+
+* Resources
+
+- [[https://en.wikipedia.org/wiki/Warren_Abstract_Machine][Wikipedia page]]
+- [[http://www.ai.sri.com/pubs/files/641.pdf][An Abstract Prolog Instruction Set]]
+- [[http://wambook.sourceforge.net/][Warren's Abstract Machine: A Tutorial Reconstruction]]
