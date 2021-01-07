@@ -1,0 +1,3 @@
+#+title: S7 (Scheme)
+
+[[https://ccrma.stanford.edu/software/snd/snd/s7.html][s7]] is a [[file:20201226211105-scheme.org][Scheme]] implementation intended as an extension language for other applications, primarily Snd, Radium, Common Music, and Max/MSP through the Scheme For Max external.

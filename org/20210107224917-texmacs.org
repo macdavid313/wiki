@@ -1,0 +1,39 @@
+#+title: TeXmacs
+
+GNU TeXmacs is a free scientific editing platform designed to create beautiful technical documents using a /wysiwyg/ interface.
+
+[[http://www.texmacs.org/tmweb/images/collage-reduced.png]]
+
+Documents can be saved in TeXmacs, Xml or [[file:20201226211105-scheme.org][Scheme]] format and printed as Pdf or Postscript files.
+
+* Notes
+
+** [[https://texmacs.github.io/notes/docs/scheming.html][Scheming]]
+
+TeXmacs uses [[file:20210107225655-gnu_guile.org][GNU Guile]] version 1.8 as embedded Scheme interpreter.
+
+Problems for using Guile:
+
+1. Guile 1.8 is no more supported in standard Linux distributions.
+2. more recent versions of Guile compile the sources to bytecode and introduce a separated expansion and evaluation phases which break part of our codebase.
+   + while Guile 2 has a fine compiler, it has been for some time quite slow in interpreting code
+3. some difficulties in compiling Guile 2 on Windows and Guile 3 seems not yet be supported there
+
+To move forward and remove those problems:
+
+1. use Scheme as an extension language to run on top of the GUI and the typesetting code
+2. not to carry over a huge all-purpose Scheme implementation which would come with all its own libraries dependencies (e.g. Guile needs GMP)
+3. need to be cross-platform
+4. cannot loose performance (especially at boot time and for standard operations like moving the cursor around)
+5. marshaling data to Unicode-aware Schemes is a mildly issue
+
+So far, [[file:20210107230541-chibi_scheme.org][Chibi Scheme]], [[file:20210107230700-s7_scheme.org][S7 (Scheme)]] are considered to be switched to. Meanwhile, a radical alternative is to consider the embedding of a full-fledged Scheme compiler like [[file:20210107230750-chez_scheme.org][Chez Scheme]].
+
+The benchmark shows that S7 is consistently the fastest interpreter wrt. Chibi or Guile 1.8. Also, as expected, Chez is among the fastest implementations available with consistent timings all across the benchmarks.
+
+* Resources
+
+- [[http://www.texmacs.org/tmweb/help/learn.en.html][Learning TeXmacs]]
+- [[https://texmacs.github.io/notes/docs/main.html][Notes on TeXmacs]]
+  + [[https://texmacs.github.io/notes/docs/awesome-texmacs.html][Awesome GNU TeXmacs]]
+  + [[https://texmacs.github.io/notes/docs/scheming.html][Scheming]]

@@ -1,0 +1,3 @@
+#+title: GNU Guile
+
+*GNU Ubiquitous Intelligent Language for Extensions (GNU Guile)* is the preferred extension language system for the GNU Project and features an implementation of the programming language [[file:20201226211105-scheme.org][Scheme]].
