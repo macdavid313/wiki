@@ -16,3 +16,5 @@ public_html
 run
 
 .vscode
+
+.DS_Store
