@@ -9,7 +9,7 @@ all:
 
 quick_update:
 	$(GIT) add -A
-	$(GIT) commit -m "update content"
+	$(GIT) commit -m "update"
 	$(GIT) push -u origin master
 
 build_container:
