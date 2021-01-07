@@ -2,6 +2,7 @@
 
 GNU TeXmacs is a free scientific editing platform designed to create beautiful technical documents using a /wysiwyg/ interface.
 
+#+CAPTION: GNU TeXmacs: your scientific text editor
 [[http://www.texmacs.org/tmweb/images/collage-reduced.png]]
 
 Documents can be saved in TeXmacs, Xml or [[file:20201226211105-scheme.org][Scheme]] format and printed as Pdf or Postscript files.
