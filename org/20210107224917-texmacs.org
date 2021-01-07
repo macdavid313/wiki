@@ -11,6 +11,8 @@ Documents can be saved in TeXmacs, Xml or [[file:20201226211105-scheme.org][Sche
 
 ** [[https://texmacs.github.io/notes/docs/scheming.html][Scheming]]
 
+<2021-01-07 Thu>
+
 TeXmacs uses [[file:20210107225655-gnu_guile.org][GNU Guile]] version 1.8 as embedded Scheme interpreter.
 
 Problems for using Guile:
