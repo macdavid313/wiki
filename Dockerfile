@@ -1,12 +1,13 @@
-FROM python:3.8.7-alpine
+FROM silex/emacs:27.1-dev
 
 WORKDIR /usr/local/src
 COPY publish.el ./
 COPY org/ ./org
 COPY static ./static
 
-RUN apk update && apk add --update graphviz sqlite emacs
+RUN apt update && apt install -y graphviz sqlite nodejs
+RUN npm install -g http-server
 RUN PROJECT_DIR=$(pwd) emacs --batch -Q -L $(pwd) --eval "(progn (require 'publish) (wiki/publish))"
 RUN mkdir -p ./public_html/wiki; mv ./public_html/static ./public_html/wiki
 
-CMD python3.8 -m http.server 8080 --bind 0.0.0.0 -d ./public_html
+CMD http-server $(pwd)/public_html -p 80 --silent
