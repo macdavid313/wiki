@@ -30,7 +30,7 @@ LD_PRELOAD="libgslcblas.so libgsl.so" scheme
 - Ruby
   - [[https://github.com/d-unseductable/ruru][ruru]]
   - [[https://github.com/danielpclark/rutie][rutie]]
-  - [[https://deliveroo.engineering/2019/02/14/moving-from-ruby-to-rust.htm][Moving from Ruby to Rust]]
+  - [[https://deliveroo.engineering/2019/02/14/moving-from-ruby-to-rust.html][Moving from Ruby to Rust]]
 
 ** Chez Scheme Community
 
