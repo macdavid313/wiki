@@ -1,13 +1,9 @@
 GIT = git
 
-all: push
-	echo "Content updated successfully"
+all: 
+	echo "Dummpy Makfile"
 
-stage_all:
+quick_update:
 	$(GIT) add -A
-
-commit: stage_all
 	$(GIT) commit -m "update content"
-
-push: commit
 	$(GIT) push -u origin master
