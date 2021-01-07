@@ -139,6 +139,7 @@
          :recursive t
          :headline-levels 3
          :with-toc t
+         :with-date t
          ;; HTML specific
          :html-doctype "html5"
          :html-html5-fancy t
