@@ -148,13 +148,7 @@
          :html-head-include-default-style t
          :html-head-extra ,site-head-extra
          :html-link-use-abs-url t
-         :htmlized-source nil
-         ;; Sitemap
-         :auto-sitemap t
-         :sitemap-title "近期修改 (Recent Changes)"
-         :sitemap-sort-files anti-chronologically
-         :sitemap-format-entry sitemap-format-entry
-         :sitemap-filename "recent_changes.org")
+         :htmlized-source nil)
         ("assets"
          :base-directory ,(concat project-dir "/static")
          :base-extension any
