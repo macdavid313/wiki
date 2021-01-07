@@ -13,3 +13,7 @@ quick_update:
 
 build_container:
 	$(DOCKER) build -t $(CONTAINER) $(PWD)
+
+start_server: build_container
+	$(DOCKER) run -p 8080:80 --rm -d $(CONTAINER)
+
