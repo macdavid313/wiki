@@ -42,14 +42,6 @@ jobs:
               -L $(pwd) \
               --eval "(progn (require 'publish) (wiki/publish))"
 
-      - name: Convert SVG -> PNG
-        run: |
-          npm install svgexport -g; \
-          pushd public_html/static/img; \
-          svgexport graph.svg graph.png 100%; \
-          rm graph.svg; \
-          popd
-
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@v3
         with:
