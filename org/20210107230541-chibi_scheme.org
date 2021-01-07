@@ -1,6 +1,6 @@
 #+title: Chibi Scheme
 
-#+BGEIN_QUOTE
+#+BEGIN_QUOTE
 Minimal [[file:20201226211105-scheme.org][Scheme]] Implementation for use as an Extension Language
 #+END_QUOTE
 
