@@ -1,6 +1,7 @@
 GIT = git
 DOCKER = docker
 CONTAINER = publish-wiki
+PWD = ` pwd `
 
 all: 
 	echo "Dummpy Makfile"
@@ -11,4 +12,4 @@ quick_update:
 	$(GIT) push -u origin master
 
 build_container:
-	$(DOCKER) build -t $(CONTAINER) `pwd`
+	$(DOCKER) build -t $(CONTAINER) $(PWD)
