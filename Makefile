@@ -2,6 +2,7 @@ GIT = git
 DOCKER = docker
 CONTAINER = publish-wiki
 PWD = ` pwd `
+PORT = 8080
 
 all: 
 	echo "Dummpy Makfile"
@@ -15,5 +16,5 @@ build_container:
 	$(DOCKER) build -t $(CONTAINER) $(PWD)
 
 start_server: build_container
-	$(DOCKER) run -p 8080:80 --rm -d $(CONTAINER)
+	$(DOCKER) run -p $(PORT):80 --rm -d $(CONTAINER)
 
