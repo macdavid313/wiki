@@ -1,0 +1,43 @@
+#+title: Emacs
+
+[[https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/EmacsIcon.svg/500px-EmacsIcon.svg.png]]
+
+*Emacs* or *EMACS* is a family of text editors that are characterized by their extensibility. The manual for the most widely used variant GNU Emacs, describes it as "the extensible, customizable, self-documenting, real-time display editor".
+
+ Implementations of Emacs typically feature a dialect of the [[file:20201225161334-lisp.org][Lisp]] programming language that provides a deep extension capability, allowing users and developers to write new commands and applications for the editor. For example, [[file:20210109144846-emacs_lisp.org][Emacs Lisp]].
+
+* Notes
+
+** Display World Time in a minibuffer
+
+[2021-01-09 Sat]
+
+If you need to cooperate with people from different time zones, this might be helpful.
+
+#+BEGIN_SRC emacs-lisp
+(require 'time')
+
+(setq display-time-world-list
+      '(("America/Los_Angeles" "San Francisco")
+        ("Asia/Bangkok" "Bangkok")
+        ("Europe/Kiev" "Kiev")
+        ("Asia/Tokyo" "Tokyo")))
+
+(defun display-time-world-minibuffer ()
+  "Like `display-time-world', but just display it in the minibuffer."
+  (interactive)
+  (message
+   (with-temp-buffer
+     (display-time-world-display display-time-world-list)
+     (buffer-string))))
+#+END_SRC
+
+* Resources
+
+- [[https://www.gnu.org/software/emacs/][GNU Emacs]]
+- [[https://github.com/hlissner/doom-emacs][Doom Emacs]]
+  #+BEGIN_QUOTE
+  Doom is a configuration framework for GNU Emacs tailored for Emacs bankruptcy veterans who want less framework in their frameworks, a modicum of stability (and reproducibility) from their package manager, and the performance of a hand rolled config (or better).
+  #+END_QUOTE
+  + My [[https://github.com/macdavid313/doom.d][configuration]]
+  + A very comprehensive [[https://tecosaur.github.io/emacs-config/config.html][Doom Emacs Configuration]]

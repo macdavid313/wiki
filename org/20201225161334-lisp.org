@@ -16,5 +16,10 @@ Welcome to the madness of parenthesis.
 
 * [[file:20201226211554-racket.org][Racket]]
 
-#+CAPTION: the DSL for writing DSLs
+#+CAPTION: The DSL for writing DSLs
 [[https://racket-lang.org/img/racket-logo.svg]]
+
+* [[file:20210109144846-emacs_lisp.org][Elisp]]
+
+#+CAPTION: The scripting language for the ultimate customisation
+[[https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/EmacsIcon.svg/500px-EmacsIcon.svg.png]]
