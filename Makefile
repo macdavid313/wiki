@@ -17,4 +17,3 @@ build_container:
 
 start_server: build_container
 	$(DOCKER) run -p $(PORT):80 --rm -d $(CONTAINER)
-
