@@ -9,5 +9,3 @@ Emacs Lisp is a dialect of the Lisp programming language used as a scripting lan
   (interactive)
   (message "%s" "Hello, World!"))
 #+END_SRC
-
-*

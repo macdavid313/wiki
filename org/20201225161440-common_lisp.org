@@ -170,7 +170,7 @@ For a complete interface there are many more Python C/API functions to declare. 
 
 ** On Scientific Computing
 
-<2018-07-04 Wed, 20:10:45>
+[2018-07-04 Wed, 20:10:45]
 
 About 2 months ago, I started trying to develop an experimental [[https://github.com/macdavid313/Chenyi][mathematics library]] for Common Lisp and today I realize I haven’t touched the code base for a while. The project itself seems to be a failure, however, now I have gained more experience and insights for numerical code written in Common Lisp.
 
@@ -236,7 +236,7 @@ See (read) more information of this topic here: [[*Scientific Computing][Scienti
 
 ** Gray Streams
 
-<2020-12-26 Sat 17:31>
+[2020-12-26 Sat 17:31]
 
 CLiki link: [[https://www.cliki.net/Gray%20streams]]
 
