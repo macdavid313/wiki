@@ -87,7 +87,7 @@
     (insert "#+TITLE: 索引 (Index)\n#+OPTIONS: toc:nil\n\n")
     (insert "* Graph\n\n")
     ;; (insert "@@html:<div id=\"network\">@@ @@html:</div>@@\n")
-    (insert "[[http://macdavid313.xyz/wiki/static/img/graph.svg]]\n\n")
+    (insert "[[https://macdavid313.xyz/wiki/static/img/graph.svg]]\n\n")
     (insert "* Links\n\n")
     (dolist (fname-title (collect-all-org-files-titles))
       (when (not (string-equal (car fname-title) "index.org"))
