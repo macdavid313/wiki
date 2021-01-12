@@ -84,7 +84,7 @@
 (defun append-full-index ()
   "Append all org files to index.org in a 'Full Index' section."
   (with-temp-buffer
-    (insert "#+title: 索引 (Index)\n#+OPTIONS: toc:nil\n\n")
+    (insert "#+TITLE: 索引 (Index)\n#+OPTIONS: toc:nil\n\n")
     (insert "* Graph\n\n")
     ;; (insert "@@html:<div id=\"network\">@@ @@html:</div>@@\n")
     (insert "[[http://macdavid313.xyz/wiki/static/img/graph.svg]]\n\n")
