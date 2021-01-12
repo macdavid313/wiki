@@ -43,7 +43,7 @@
 ;;         (concat (url-hexify-string
 ;;                  (file-name-sans-extension (file-name-nondirectory file)))
 ;;                 ".html")))
-; -- End of set up
+                                        ; -- End of set up
 
 (require 'ox-publish)
 (require 'ox-html)
@@ -54,16 +54,16 @@
 (defun collect-all-org-files-titles ()
   "Traverse all org-roam files, sort by titles and return filenames and titles as pairs in an alist."
   (cl-sort
-    (mapcar (lambda (f)
-              (let ((fname (concat (file-name-base f) ".org"))
-                    (title (with-current-buffer (find-file-read-only f)
-                             (let ((res (car (org-roam--extract-titles-title))))
-                               (kill-buffer-if-not-modified (current-buffer))
-                               res))))
-                (cons fname title)))
-            (org-roam--list-all-files))
-    #'string-lessp
-    :key #'cdr))
+   (mapcar (lambda (f)
+             (let ((fname (concat (file-name-base f) ".org"))
+                   (title (with-current-buffer (find-file-read-only f)
+                            (let ((res (car (org-roam--extract-titles-title))))
+                              (kill-buffer-if-not-modified (current-buffer))
+                              res))))
+               (cons fname title)))
+           (org-roam--list-all-files))
+   #'string-lessp
+   :key #'cdr))
 
 (defun build-graph/graphviz ()
   (let* ((node-query `[:select [titles:file titles:title] :from titles
@@ -101,10 +101,9 @@
     (kill-buffer (current-buffer))))
 
 (defun prepare-publish (prop)
-  (progn
-    (org-roam-db-build-cache)
-    (build-graph/graphviz)
-    (append-full-index)))
+  (org-roam-db-build-cache)
+  (build-graph/graphviz)
+  (append-full-index))
 
 (defun sitemap-format-entry (entry _style project)
   "Return string for each ENTRY in PROJECT."
@@ -118,7 +117,7 @@
 ;;; Configurations for publishing
 (defvar site-preamble "")
 
-(defvar site-postamble 
+(defvar site-postamble
   "<script type=\"text/javascript\" src=\"/wiki/static/js/script.js\"></script>")
 
 (defvar site-head-extra
