@@ -2,6 +2,12 @@
 
 *ParEdit* (=paredit.el=) is a minor mode of [[file:20210109144507-emacs.org][Emacs]] for performing structured editing of S-expression data. The typical example of this would be [[file:20201225161334-lisp.org][Lisp]] or [[file:20201226211105-scheme.org][Scheme]] source code.
 
+#+CAPTION: Slurping and barfing
+[[http://danmidwood.com/assets/animated-paredit/paredit-slurp-barf.gif]]
+
+#+CAPTION: Slurping and barfing backwards
+[[http://danmidwood.com/assets/animated-paredit/paredit-slurp-barf-backwards.gif]]
+
 * Resources
 
 - [[https://www.emacswiki.org/emacs/ParEdit][Par Edit (EmacsWiki)]]
