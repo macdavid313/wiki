@@ -6,3 +6,4 @@
 
 - [[https://www.emacswiki.org/emacs/ParEdit][Par Edit (EmacsWiki)]]
 - [[http://danmidwood.com/content/2014/11/21/animated-paredit.html][The Animated Guide to Paredit]]
+- [[http://pub.gajendra.net/src/paredit-refcard.pdf][Paredit Reference Card]]
