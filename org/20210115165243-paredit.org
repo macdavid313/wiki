@@ -1,0 +1,8 @@
+#+title: Paredit
+
+*ParEdit* (=paredit.el=) is a minor mode of [[file:20210109144507-emacs.org][Emacs]] for performing structured editing of S-expression data. The typical example of this would be [[file:20201225161334-lisp.org][Lisp]] or [[file:20201226211105-scheme.org][Scheme]] source code.
+
+* Resources
+
+- [[https://www.emacswiki.org/emacs/ParEdit][Par Edit (EmacsWiki)]]
+- [[http://danmidwood.com/content/2014/11/21/animated-paredit.html][The Animated Guide to Paredit]]
