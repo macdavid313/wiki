@@ -17,6 +17,7 @@ fn main() {
 - [[https://dhghomon.github.io/easy_rust/Chapter_1.html][Easy Rust]]
 - [[https://rust-unofficial.github.io/patterns/][Rust Design Patterns]]
 - [[https://rust-cli.github.io/book/index.html][Command line apps in Rust]]
+- [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust With Entirely Too Many Linked Lists]]
 
 ** Articles
 
