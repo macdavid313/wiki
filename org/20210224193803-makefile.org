@@ -1,0 +1,7 @@
+#+title: Makefile
+
+A makefile is a file (by default named "Makefile") containing a set of directives used by a make build automation tool to generate a target/goal.
+
+* Resources
+
+- [[https://en.wikipedia.org/wiki/Makefile][Wikipedia page]]
