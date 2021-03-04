@@ -11,6 +11,10 @@ fn main() {
 * Resources
 
 - [[https://www.youtube.com/watch?v=qbuTh1mIyHU&list=PL5aMzERQ_OZ8RWqn-XiZLXm1IJuaQbXp0][KAIST CS420: Compiler Design]]
+- [[file:20210109144507-emacs.org][Emacs]] configuration
+  + [[https://emacs-lsp.github.io/lsp-mode/page/lsp-rust/#rust][lsp-rust]]
+  + [[https://rust-analyzer.github.io/manual.html#emacs][Rust Analyzer - Emacs]]
+  + [[https://robert.kra.hn/posts/2021-02-07_rust-with-emacs/][Configuring Emacs for Rust development]]
 
 ** Books
 
