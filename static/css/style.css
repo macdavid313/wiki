@@ -1,0 +1,56 @@
+html {
+    overflow-y: scroll
+}
+
+body {
+    font-family: 'Noto Sans SC', sans;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 10px;
+}
+
+h1, h2, h3 {
+    line-height: 1.2
+}
+
+article {
+    padding: 24px 0
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+figcaption {
+    font: 12px/1.5 monospace;
+    text-align: center;
+}
+
+figure {
+    margin: auto
+}
+
+pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: small;
+}
+
+blockquote {
+    font-family: serif;
+}
+
+figure {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
